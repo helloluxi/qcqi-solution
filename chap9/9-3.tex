@@ -1,0 +1,12 @@
+\section{How well does a quantum channel preserve information?}
+
+\ex $$\begin{aligned}
+& E(VU, \mathcal{F}\circ\mathcal{E})
+\\ = & \max_{\rho} d(VU\rho U^\dagger V^\dagger, \mathcal{F}\circ\mathcal{E}(\rho))
+\\ \le & \max_{\rho} [d(VU\rho U^\dagger V^\dagger, V\mathcal{E}(\rho)V^\dagger) + d(V\mathcal{E}(\rho)V^\dagger, \mathcal{F}\circ\mathcal{E}(\rho))]
+\\ \le & \max_{\rho} d(VU\rho U^\dagger V^\dagger, V\mathcal{E}(\rho)V^\dagger) + \max_{\rho} d(V\mathcal{E}(\rho)V^\dagger, \mathcal{F}\circ\mathcal{E}(\rho))
+\\ = & \max_{\rho} d(U\rho U^\dagger, \mathcal{E}(\rho)) + \max_{\rho} d(V\rho V^\dagger, \mathcal{F}(\rho))
+\\ = & E(U, \mathcal{E}) + E(V, \mathcal{F}).
+\end{aligned}$$
+
+\ex pass.

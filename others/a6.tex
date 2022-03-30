@@ -1,0 +1,39 @@
+\chapter{Proof of Lieb's theorem}
+
+\ex If $B-A$ is positive, then for any $\ket{u}$, $\bra{u}(B-A)\ket{u} \ge 0$.
+Hence for any martix $X$, $(X^\dagger\ket{u})^\dagger(B-A)(X^\dagger\ket{u}) \ge 0$, or $\bra{u}(XBX^\dagger-XAX^\dagger)\ket{u} \ge 0$.
+So $XBX^\dagger \ge XAX^\dagger$.
+
+\ex pass.
+
+\ex pass.
+
+\ex (1) Let $\ket{u}$ be a unit eigenvector corresponding to the eigenvalue with maximum absolute value, then
+$$
+||A|| \ge |\bra{u}A\ket{u}| = \lambda|\bra{u}\ket{u}| = \lambda.
+$$
+
+(2) When $A$ is Hermitian we can write it as $A=\sum_i\lambda_i\dyadic{\psi_i}{\psi_i}$, where $\lambda_i\in\mathbb{R}$ and $\ket{\psi_i}$s form an orthonormal basis.
+For any vector $\ket{\psi}=\sum_ia_i\ket{\psi_i}$, we have
+$$
+\bra{\psi}A\ket{\psi} = \sum_i\lambda_i|a_i|^2 \le \lambda.
+$$
+
+(3) Let $\ket{u} = \cos(\theta/2)\ket{0} + e^{i\varphi}\sin(\theta/2)\ket{1}$ be any unit vector, then
+$$
+||A|| = \max_{\theta,\varphi}|\bra{u}A\ket{u}| = \max_{\theta,\varphi}|1 + e^{-i\varphi}\cos(\theta/2)\sin(\theta/2)| = \frac{3}{2}.
+$$
+
+\ex For invertible $A$, we have
+$$
+\det(xI-AB) = \det(A)\det(xA^{-1}-B) = \det(xI-BA).
+$$
+
+Since the quantity $\det(xI-AB) - \det(xI-BA)$ is a polynomial about $x$, and takes the value 0 in $\mathbb{R}-\rho(A)$, where $\rho(A)$ is the eigenvalue set of $A$ which is discrete, we conclude that the quantity equals 0 for all $x$.
+
+\ex By Ex. A6.4, let $\lambda$ be the common maximal absolute-value eigenvalue of $AB$ and $BA$, then $||AB||=\lambda\le||BA||$.
+
+\ex Let $A=U\Lambda U^\dagger$ be its diagonalization, then $||A|| \le 1$ iff all entries of $\Lambda$ is no more than 1, iff $I-\Lambda$ is positive, iff $I-A=U(I-\Lambda)U^\dagger$ is positive.
+
+\ex Since $A$ is positive, so are $X^\dagger AX$ and $XAX^\dagger$ by similar arguments to Ex. A6.1.
+Hence all their eigenvalues are non-negative, finally $\tr(X^\dagger AX) \ge 0$ and $\tr(X^\dagger XA) = \tr(XAX^\dagger) \ge 0$.

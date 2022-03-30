@@ -1,0 +1,95 @@
+\chapter{Quantum circuits}
+
+\section{Quantum algorithms}
+
+\section{Single qubit operations}
+
+\ex $X:(\pm 1,0,0)$, $Y:(0,\pm 1,0)$, $Z:(0,0,\pm 1)$.
+
+\ex Follow (Ex 2.35).
+
+\ex $T=e^{i\pi/8}R_z(\pi/4)$.
+
+\ex $H=iR_x(\frac{\pi}{2})R_z(\frac{\pi}{2})R_x(\frac{\pi}{2})$, by imaging a process to swap $\ket{0}$ and $\ket{+}$ on the Bloch sphere.
+
+\ex Follow (Ex 2.35).
+
+\ex Let $\ket{\lambda}$ be the state whose Bloch vector is $\vec{\lambda}$, and let $U$ be an unitary transform such that $U\ket{0} = \ket{\lambda}$, where $\ket{0}$ is the state whose Bloch vector is $\hat{z}$.
+Then 
+$$U\frac{I+\hat{z}\cdot\vec{\sigma}}{2}U^\dagger = U\dyadic{0}{0}U^\dagger = \dyadic{\lambda}{\lambda} = \frac{I+\vec{\lambda}\cdot\vec{\sigma}}{2}.$$
+
+Therefore,
+$$U(\hat{z}\cdot\vec{\sigma})U^\dagger = \vec{\lambda}\cdot\vec{\sigma}.$$
+
+Hence
+$$R_n(\theta) = e^{-\frac{i\theta}{2}\vec{n}\cdot\vec{\sigma}} = e^{-\frac{i\theta}{2}U(\hat{z}\cdot\vec{\sigma})U^\dagger} = Ue^{-\frac{i\theta}{2}\hat{z}\cdot\vec{\sigma}} = UR_z(\theta)U^\dagger.$$
+
+So we can interpret $R_n(\theta)$ as: first rotate the Bloch sphere such that the vector $\vec{\lambda}$ arrives $\hat{z}$, then rotate the Bloch sphere around $\hat{z}$ by angle $\theta$, finally rotate it such that $\hat{z}$ comes back to $\vec{\lambda}$, which is clearly identical to rotate around $\vec{n}$ by angle $\theta$.
+
+\ex From $\sigma_a\sigma_b=i\varepsilon_{abc}\sigma_c(a,b,c\in\{1,2,3\})$ we know $XYX=iZX=i(iY)=-Y$, hence
+$$\begin{aligned}
+    XR_y(\theta)X=&X\left[\sum_n\frac{1}{n!}\left(-\frac{i\theta Y}{2}\right)^n\right]X
+    \\=&\sum_n\frac{1}{n!}\left(-\frac{i\theta}{2}\right)^nXY^nX
+    \\=&\sum_n\frac{1}{n!}\left(-\frac{i\theta}{2}\right)^n(XYX)^n
+    \\=&\sum_n\frac{1}{n!}\left(\frac{i\theta Y}{2}\right)^n
+    \\=&R_y(-\theta)\end{aligned}$$.
+
+\ex (1) For arbitrary $2\times 2$ unitary matrix $U$, we know earlier that $\det(U)=\exp(i2\alpha)$ for some $\alpha\in\mathbb{R}$. Then $U/\exp(i\alpha)$ is a special unitary matrix, which we now prove to be equal to some $R_n(\theta)$. Since unitary matrices are diagonalizable, we have
+$$\begin{aligned}
+    U/\exp(i\alpha) = & V^\dagger \begin{pmatrix}
+        e^{i\theta/2} & 0 \\
+        0 & e^{-i\theta/2}
+    \end{pmatrix}V
+    \\ = & V^\dagger R_z(\theta) V
+    \\ = & V^\dagger \exp(-i\theta Z/2) V
+    \\ = & \exp(-i\theta V^\dagger ZV/2)
+\end{aligned}$$
+for some special unitary matrix $V$.
+Since $V^\dagger ZV$ is Hermitian and has trace zero, it can be linearly represented by $\{X,Y,Z\}$, as $n_xX+n_yY+n_zZ$. Denote $\vec{n}=(n_x,n_y,n_z)$, we finally have
+$$
+    U/\exp(i\alpha) = \exp(-i\theta (n_xX+n_yY+n_zZ)/2) = R_n(\theta)
+$$
+
+(2) $\alpha=-\frac{\pi}{2}$, $\theta=\pi$, $\vec{n}=\frac{1}{\sqrt{2}}(1,0,1)$.
+
+(3) $\alpha=\frac{\pi}{4}$, $\theta=\frac{\pi}{2}$, $\vec{n}=\hat{z}$.
+
+\ex Since $U$ is unitary, the rows and columns of $U$ are normalized, so we can write $U$ as
+$$
+    U = \begin{pmatrix}
+        e^{ia}\cos\frac{\theta}{2} & e^{ic}\sin\frac{\theta}{2} \\
+        e^{ib}\sin\frac{\theta}{2} & e^{id}\cos\frac{\theta}{2}
+    \end{pmatrix}, \qquad(a,b,c,d\in\mathbb{R}).
+$$
+By orthogonal property we have $(e^{i(a-c)}-e^{i(b-d)})\cos\frac{\theta}{2}\sin\frac{\theta}{2} = 0$.
+
+In general position where $\cos\frac{\theta}{2}\sin\frac{\theta}{2} \neq 0$, we add a constraint $a-c=b-d$. By comparing we have
+$$\alpha = \frac{1}{4}(a+b+c+d),\quad
+\beta = \frac{1}{2}(-a-b+c+d),\quad
+\gamma = \theta,\quad
+\delta = \frac{1}{2}(-a+b-c+d).$$
+
+For special situation it is even earlier and we skip.
+
+\ex $$U = e^{i\alpha}R_z(\beta)R_x(\gamma)R_z(\delta) = \begin{pmatrix}
+    e^{i\left(\alpha-\frac{\beta}{2}-\frac{\delta}{2}\right)}\cos\frac{\gamma}{2} & -ie^{i\left(\alpha-\frac{\beta}{2}+\frac{\delta}{2}\right)}\sin\frac{\gamma}{2} \\
+    ie^{i\left(\alpha+\frac{\beta}{2}-\frac{\delta}{2}\right)}\sin\frac{\gamma}{2} & e^{i\left(\alpha+\frac{\beta}{2}+\frac{\delta}{2}\right)}\cos\frac{\gamma}{2}
+\end{pmatrix}.$$
+
+\ex \redstar  Suppose $\vec{m}$ and $\vec{n}$ are very close, choose a unit vector that is close to both of them, then it is impossible to transform it to anywhere on the unit sphere within three rotations?
+
+\ex Notice that the Hadamard gate acts on a Bloch sphere by swapping $\ket{0}$ and $\ket{+}$, we know an Hadamard transform is equal to first rotate around $\hat{z}$ by $\pi$, then rotate around $\hat{y}$ by $\pi/2$.
+Thus $H=iR_z(0)R_y(\frac{\pi}{2})R_z(\pi)$.
+And we can write directly that
+$$\alpha=\pi,\quad A=R_y(\frac{\pi}{4}),\quad B=R_y(-\frac{\pi}{4})R_z(-\frac{\pi}{2}),\quad C=R_z(\frac{\pi}{2})$$
+
+\ex pass. (It is useful that $H=(X+Z)/\sqrt{2}$.)
+
+\ex $$\begin{aligned}HTH=&e^{i\frac{\pi}{8}}HR_z(\frac{\pi}{4})H
+    \\=&e^{i\frac{\pi}{8}}\sum_n\frac{1}{n!}H(-i\pi Z/8)^nH
+    \\=&e^{i\frac{\pi}{8}}\sum_n\frac{1}{n!}(-i\pi HZH/8)^n
+    \\=&e^{i\frac{\pi}{8}}\sum_n\frac{1}{n!}H(-i\pi X/8)^nH
+    \\=&e^{i\frac{\pi}{8}}R_x(\frac{\pi}{4})\end{aligned}$$.
+
+\ex pass.
+

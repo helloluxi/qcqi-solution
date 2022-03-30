@@ -1,0 +1,22 @@
+\section{Summary of quantum circuit modelof computation}
+
+\section{Simulation of quantum systems}
+
+\ex The matrix has $2^n\times 2^n$ real entries and a single restriction $\tr(\rho)=1$, hence the degree of freedom is $4^n-1$.
+
+\ex $L=1$ is trivial, $L=2$ follows Ex.2.54, and $L>2$ can be proved by induction.
+
+\ex $C_n^c=\frac{n!}{c!(n-c)!}$ is a polynomial of degree at most $c$ and is the upper bound of $L$.
+
+\ex pass.
+
+\ex (1)Apply induction on $L$ to Ex.4.49(3).
+
+(2)The difference between $U_{\Delta t}$ and $e^{-2iHt}$ is $O(\Delta t^3)$ and so do their norms. We have $E(U_{\Delta t}, e^{-2iHt})\le\alpha\Delta t^3$. By Box 4.2 we have $E(U_{\Delta t}^m, e^{-2miHt})\le m\alpha\Delta t^3$.
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    & \gate{H} & \ctrl{3} & \qw & \qw & \qw & \qw & \qw & \ctrl{3} & \gate{H} & \qw \\
+    & \gate{R_z(\frac{\pi}{8})} & \qw & \ctrl{2} & \qw & \qw & \qw & \ctrl{2} & \qw & \gate{R_z(\frac{\pi}{8})} & \qw \\
+    & \qw & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \qw & \qw \\
+    & \qw & \targ & \targ & \targ & \gate{e^{-i\Delta tZ}} & \targ & \targ & \targ & \qw & \qw 
+}$$

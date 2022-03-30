@@ -1,0 +1,23 @@
+\section*{Chapter Problems}
+\addcontentsline{toc}{section}{Chapter Problems}
+
+\prob For any inversible positive operator $P$, let $P=\sum_m p_m\dyadic{m}{m}(p_m>0)$, where $\{\ket{m}\}$ is an orthonormal basis.
+Then $\{E_m=\dyadic{m}{m}\}$ is a POVM.
+We have
+$$\begin{aligned}
+    \tr(\rho P)\tr(\sigma P^{-1})
+    = & \sum_mp_m\tr(\rho E_m) \cdot \sum_np_n^{-1}\tr(\sigma E_n)
+    \\ \ge & \sum_m \sqrt{\tr(\rho E_m)\cdot\tr(\sigma E_m)}
+    \\ \ge & F(\rho, \sigma).
+\end{aligned}$$
+
+All equality holds iff $\{p_m\}$ is chosen such that $p_m\tr(\rho E_m)/p_m^{-1}\tr(\sigma E_m)$ is constant for all $m$, and $\{\ket{m}\}$ is chosen as Eq.~(9.81).
+Hence
+$$F(\rho, \sigma)=\inf_P\tr(\rho P)\tr(\sigma P^{-1}).$$
+
+\prob For fixed $\rho$, since $E\mapsto\tr(\rho E)$ is a $\mathbb{R}$-linear functional on $\mathbb{C}^{2\times 2}$, the space of linear operators $E$, its kernel is a codimension-1 subspace of $\mathbb{C}^{2\times 2}$.
+Let $E_1$ be an element on the orthogonal space of the kernel, such that it can be extended to a set $\{E_i\}$ representing $\mathcal{E}$.
+Then we have
+$$F(\rho,\mathcal{E}) = \sum_i|\tr(\rho E_i)|^2 = |\tr(\rho E_1)|^2.$$
+
+\prob \todo

@@ -1,0 +1,55 @@
+\chapter{Quantum noise and quantum operations}
+
+\section{Classical noise and Markov processes}
+
+\section{Quantum operations}
+
+\ex pass.
+
+\ex pass.
+
+\ex Let $\{\ket{e_k}\}$ be a set of orthogonal basis of system $AD$.
+We have
+$$
+\mathcal{E}(\rho) = \sum_k\bra{e_k}U\left[\rho\otimes\dyadic{0_{CD}}{0_{CD}}\right]U^\dagger\ket{e_k} = \sum_kE_k\rho E_k^\dagger,
+$$
+where $E_k=\bra{e_k}U\ket{0_{CD}}$ is an operator from the state space of system $AB$ to the state space of system $BC$, and such that
+$$\begin{aligned}
+    \sum_kE_k^\dagger E_k = & \sum_k\bra{0_{CD}}U^\dagger\ket{e_k}\bra{e_k}U\ket{0_{CD}}
+    \\ = & \bra{0_{CD}}U^\dagger\left(\sum_k\dyadic{e_k}{e_k}\right)U\ket{0_{CD}}
+    \\ = & \bra{0_{CD}}I_{ABCD}\ket{0_{CD}}
+    \\ = & I_{AB}.
+\end{aligned}$$
+
+\ex Then $\mathcal{E}(\rho) = \sum_{k=0,1}E_k\rho E_k^\dagger$, where
+$$
+    E_0 = \bra{0_E}U\ket{0_E} = P_0, \qquad
+    E_1 = \bra{1_E}U\ket{0_E} = P_1,
+$$
+where the subscript $E$ stands for environment(the second system).
+
+\ex $E_0=X/\sqrt{2}$, $E_1=Y/\sqrt{2}$.
+
+\ex pass.
+
+\ex pass.
+
+\ex Since $\sum_kE_k^\dagger E_k\le I$, $I-\sum_kE_k^\dagger E_k$ is positive semi-definite, hence there exists $E_\infty$ such that $E_\infty^\dagger E_\infty = I-\sum_kE_k^\dagger E_k$.
+
+\ex pass.
+
+\ex Since $W_{jk}=\tr(E_j^\dagger E_k)=\tr(E_k^\dagger E_j)^*=W_{kj}^*$, $W$ is Hermitian.
+For any subset $\{E_j\}_{j=1}^{m}$ where $m>d^2$, since its elements are on a complex linear space of dimension $d^2$, they are linearly dependent, i.e., there exists $c_1,c_2,\cdots,c_m\in\mathbb{C}$ such that
+$$\sum_{j=1}^{m}c_jE_j=0.$$
+
+Then for each $j$-th row,
+$$\sum_{k=1}^{d^2+1}c_kW_{jk}=\tr(E_j^\dagger\sum_{k=1}^{d^2+1}c_kE_k)=0.$$
+Hence the corresponding submatrix of $W$ is degenerate.
+In conclusion $W$ is of rank at most $d^2$.
+
+Thus there is unitary matrix $u$ such that $uWu^\dagger$ is diagonal with at most $d^2$ non-zero entries, says $uWu^\dagger=\operatorname{diag}(v_1,\cdots,v_n,0\cdots,0)$, where $n\le d^2$.
+
+Define $F_j=\sum_iu_{jk}E_k$ for $1\le j\le n$.
+The rest follows Theorem 8.2.
+
+\ex Analogous to the previous exercise.

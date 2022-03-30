@@ -1,0 +1,69 @@
+\section{Quantum search as a quantum simulation}
+
+\ex Since
+$$
+    \Qcircuit @C=1em @R=.7em {
+        & \qw & \ctrl{1} & \qw & \qw \\
+        & \gate{H} & \targ & \gate{H} & \qw
+    } = \Qcircuit @C=1em @R=.7em {
+        & \ctrl{1} & \qw \\
+        & \gate{Z} & \qw
+    } = I - 2\dyadic{11}{11},
+$$
+we have
+$$
+    [\text{Gates in the dotted box}]
+    = (X\otimes X)(I - 2\dyadic{11}{11})(X\otimes X)^\dagger
+    = I-2\dyadic{00}{00}.
+$$
+
+\ex (1) Let $\ket{y} = a\ket{x} + b\ket{\bar{x}}$ such that $\inner{x}{\hat{x}} = 0$.
+Then
+$$\ket{y}\ket{0} \overset{Oracle}{\longrightarrow} a\ket{x}\ket{1}+b\ket{\bar{x}}\ket{0} \overset{e^{-i\Delta t}}{\longrightarrow} ae^{-i\Delta t}\ket{x}\ket{1}+b\ket{\bar{x}}\ket{0} \overset{Oracle}{\longrightarrow} (ae^{-i\Delta t}\ket{x}+b\ket{\bar{x}})\ket{0}$$
+
+Meanwhile, 
+$$\begin{aligned}
+    & \exp(-i\dyadic{x}{x}\Delta t)\ket{y}
+    \\ = & \sum_{n=0}^\infty \frac{1}{n!}(-i\dyadic{x}{x}\Delta t)^n(a\ket{x}+b\ket{\bar{x}})
+    \\ = & a(\sum_{n=0}^\infty \frac{1}{n!}(-i\Delta t)^n\ket{x}) + b\ket{\bar{x}}
+    \\ = & ae^{-i\Delta t}\ket{x}+b\ket{\bar{x}}.
+\end{aligned}$$
+
+(2) Let $\ket{y} = a\ket{\psi} + b\ket{\bar{\psi}}$ such that $\inner{\psi}{\bar{\psi}} = 0$. The rest is analogous.
+
+\ex Number of steps required: $t/\Delta t = \Theta(\sqrt{N}/\Delta t)$,
+
+Cumulative error: $O(\Delta t^r\times\sqrt{N}/\Delta t) = O(\Delta t^{r-1}\sqrt{N})$,
+
+Error is $O(1)$ $\Longrightarrow$ $\Delta t = \Theta(N^{-1/2(r-1)})$,
+
+Number of oracle calls: $O(N^{\frac{1}{2}+\frac{1}{2(r-1)}}) = O(N^{\frac{r}{2(r-1)}})$.
+
+\ex $$\begin{aligned}
+    U(\Delta t)
+    = & \exp(-i\dyadic{\psi}{\psi}\Delta t) \exp(-i\dyadic{x}{x}\Delta t)
+    \\ = & \exp(-\frac{i\Delta t}{2})\left[\cos(\frac{\Delta t}{2})I-i\sin(\frac{\Delta t}{2})\hat{z}\cdot\vec{\sigma}\right]
+    \\ & \cdot \exp(-\frac{i\Delta t}{2})\left[\cos(\frac{\Delta t}{2})I-i\sin(\frac{\Delta t}{2})\vec{\psi}\cdot\vec{\sigma}\right]
+    \\ = & \exp(-i\Delta t)\left\{\left[\cos^2\left(\frac{i\Delta t}{2}\right)-\sin^2\left(\frac{i\Delta t}{2}\right)\hat{z}\cdot\vec{\psi}\right]I\right.
+    \\ & \left. - 2i\sin\left(\frac{i\Delta t}{2}\right)\left[\cos\left(\frac{i\Delta t}{2}\right)\frac{\vec\psi+\hat{z}}{2}+\sin\left(\frac{i\Delta t}{2}\right)\frac{\vec\psi\times\hat{z}}{2}\right]\right\}
+\end{aligned}$$
+
+\ex We can choose $\Delta t$ to be sufficiently small, hence $\theta$ is also small, such that $\theta$ equals to an integer division of the angle between $\ket{x}$ and $\ket{\psi}$.
+
+\ex $H=\dyadic{\psi}{\psi} + \sum_x\dyadic{x}{x}$ \redstar
+
+\ex (1) With the same basis we have
+$$H = \begin{pmatrix}
+    2\alpha & \beta \\
+    \beta & 0
+\end{pmatrix} = \alpha(I+Z) + \beta X,$$
+thus
+$$\exp(-iHt) = \exp(-i\alpha t)[\cos t\cdot I-i\sin t\cdot(\alpha Z+\beta X)].$$
+
+Ignoring the global phase factor $\exp(-i\alpha t)$ we have
+$$\ket\psi \overset{\text{after time }t}{\longrightarrow} \cos t\ket\psi - i\sin t\ket{x}.$$
+
+Choosing $t=\frac{\pi}{2}$ yields the result $\ket{x}$.
+
+(2) \urlref{https://quantumcomputing.stackexchange.com/questions/9243}
+

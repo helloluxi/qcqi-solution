@@ -1,0 +1,73 @@
+\section{The postulates of quantum mechanics}
+
+\ex pass.
+
+\ex pass.
+
+\ex Observing that $H\ket{0} = \ket{+}$ and $H\ket{+} = \ket{0}$, we can see that $H(\ket{0}\pm\ket{+})=\pm(\ket{0}\pm\ket{+})$.
+Hence its eigenvalues are $\pm1$ and the corresponding eigenvectors are $\ket{0}\pm\ket{+}$(non-normalized).
+
+In fact according to Ex.4.8 and our observation, $H$ is a rotation by $\pi$ around the bisector between $\ket{0}$ and $\ket{+}$, so we know directly the eigenvectors are $(\cos\frac{\pi}{8},\sin\frac{\pi}{8})^T$ and $(-\sin\frac{\pi}{8},\cos\frac{\pi}{8})^T$.
+
+\ex $$\begin{aligned}
+    \exp(A+B) = 
+    & \sum_{n=0}^\infty\frac{1}{n!}(A+B)^n
+    \\ = & \sum_{n=0}^\infty\sum_{m=0}^nC_n^mA^mB^{n-m}(\text{using the fact that }AB=BA)
+    \\ = & \sum_{n=0}^\infty\sum_{m=0}^n\frac{1}{m!(n-m)!}A^mB^{n-m}
+    \\ = & \sum_{i=0}^\infty\frac{A^i}{i!}\sum_{j=0}^\infty\frac{B^j}{j!}
+    \\ = & \exp(A)\exp(B)
+\end{aligned}.$$
+
+[\redstar Where to use the Hermitian property?]
+
+\ex $U(t_1,t_2)^\dagger U(t_1,t_2)=\exp[\frac{iH(t_2-t_1)}{\hbar}]\exp[\frac{-iH(t_2-t_1)}{\hbar}]=\exp(0)=I$ since $\frac{iH(t_2-t_1)}{\hbar}$ and $\frac{iH(t_2-t_1)}{\hbar}$ are commutative.
+
+\ex $K-K^\dagger=-i\log(U)-i\log(U^\dagger)=-i\log(U^\dagger U)=-i\log(I)=0$, hence $K=K^\dagger$.
+
+\ex pass.
+
+\ex avg=$m$, std=0.
+
+\ex avg=$\inner{0}{X\middle|0}$, std=$\sqrt{\inner{0}{X^2\middle|0}-\inner{0}{X\middle|0}^2}$.
+
+\ex $\det(\vec{v}\cdot\vec{\sigma}-\lambda I)=(v_3-\lambda)(-v_3-\lambda)-(v_1+iv_2)(v_1-iv_2)=\lambda^2-(v_1^2+v_2^2+v_3^2)=\lambda^2-1=0\Rightarrow\lambda=\pm1$.
+Since it has two distinct eigenvalues, it has two 1-dimensional eigenspaces, hence it is diagonalized as $\vec{v}\cdot\vec{\sigma}=U^\dagger\operatorname{diag}(1,-1)U$ where $U$ is unitary.
+So the projectors are
+$$P_1=U^\dagger\operatorname{diag}(1,0)U=U^\dagger\frac{\operatorname{diag}(1,1)+\operatorname{diag}(1,-1)}{2}U=\frac{I+\vec{v}\cdot\vec{\sigma}}{2},$$
+and
+$$P_1=U^\dagger\operatorname{diag}(0,1)U=U^\dagger\frac{\operatorname{diag}(1,1)+\operatorname{diag}(1,-1)}{2}U=\frac{I-\vec{v}\cdot\vec{\sigma}}{2}.$$
+
+\ex $P=\inner{0}{P_1^\dagger P_1\middle|0}=\bra{0}\frac{I+\vec{v}\cdot\vec{\sigma}}{2}\ket{0}=\frac{v_3+1}{2}$, the result state is $\operatorname{Normalized}(P_1\ket{0})=\frac{1}{2v_3+2}\begin{pmatrix}
+    v_3+1\\v_1-iv_2
+\end{pmatrix}$.
+
+\ex $E_m=M_m^\dagger M_m=M_m$, so $M_m$ is positive, and we can write it as $M_m=\sum_i\lambda_i\dyadic{\psi_i}{\psi_i}(\lambda_i>0)$.
+Then $M_m^\dagger M_m=\sum_i\lambda_i^2\dyadic{\psi_i}{\psi_i}$.
+By $M_m^\dagger M_m=M_m$ we have $\lambda_i^2=\lambda_i$, hence all $\lambda_i=1$ and $M_m$ is a projector onto the subspace spanned by $\ket{\psi_i}$s.
+
+\ex Left polar decomposition?
+
+\ex For each $\ket{\psi_k}$, define $\ket{\psi_k^\perp}$ to be the projection of vector $\ket{\psi_k}$ onto the 1-dim subspace which is orthogonal to $\ket{\psi_j}$ for each $j\neq k$.
+Define $E_k := \alpha\dyadic{\psi_k^\perp}{\psi_k^\perp}$ for $k=1,2,\cdots,m$, where $\alpha>0$ is chosen small such that $E_{m+1} := I-\sum_{i=1}^mE_i$ is positive.
+The linearly independency indicates that $\ket{\psi_k^\perp}\neq 0$, hence each $E_k$ is positive.
+We can see that
+$$
+    \inner{\psi_k}{E_k\middle|\psi_k} = \alpha\inner{\psi_k}{\psi_k^\perp}\inner{\psi_k^\perp}{\psi_k} = \alpha\inner{\psi_k^\perp}{\psi_k^\perp}^2 > 0,
+$$
+and
+$$
+    \inner{\psi_j}{E_k\middle|\psi_j} = \alpha\inner{\psi_j}{\psi_k^\perp}\inner{\psi_k^\perp}{\psi_j} = 0\qquad(j\neq k).
+$$
+
+\ex Use basis $\ket\pm$.
+
+\ex 
+$$\begin{aligned}
+    &\frac{\bra{00}+\bra{11}}{\sqrt{2}}X_1Z_2\frac{\ket{00}+\ket{11}}{\sqrt{2}}
+    \\=&\frac{1}{2}[\inner{0}{X\middle|0}\inner{0}{Z\middle|0}+\inner{0}{X\middle|1}\inner{0}{Z\middle|1}+\inner{1}{X\middle|0}\inner{1}{Z\middle|0}+\inner{1}{X\middle|1}\inner{1}{Z\middle|1}]
+    \\=&\frac{1}{2}[0+1-1+0]=0
+\end{aligned}.$$
+
+\ex pass.
+
+\ex Suppose $\ket\psi=(x_0\ket{0}+x_1\ket{1})(y_0\ket{0}+y_1\ket{1})=x_0y_0\ket{00}+x_0y_1\ket{01}+x_1y_0\ket{10}+x_1y_1\ket{11}$, then $x_0y_1=x_1y_0=0$ but $x_0y_0=x_1y_0\neq 0$. The latter formation indicates $x_0,x_1,y_0,y_1\neq 0$, which contradicts to the former one.

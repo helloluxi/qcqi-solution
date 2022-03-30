@@ -1,0 +1,51 @@
+\section{Optical photon qunatum computer}
+
+\ex $a\ket\alpha = e^{-|\alpha|^2/2}\sum_{n=1}^\infty \frac{\alpha^n}{\sqrt{n!}} \sqrt{n}\ket{n-1} = e^{-|\alpha|^2/2}\sum_{n=0}^\infty \frac{\alpha^{n+1}}{\sqrt{n!}}\ket{n} = \alpha\ket{\alpha}$, so $\lambda = \alpha$.
+
+\ex pass.
+
+\ex $P\ket\alpha = e^{-|\alpha|^2/2}\sum_{n=0}^\infty \frac{\alpha^n}{\sqrt{n!}}e^{in\Delta}\ket{n} = e^{-|\alpha|^2/2}\sum_{n=0}^\infty \frac{(\alpha e^{i\Delta})^n}{\sqrt{n!}}\ket{n} = e^{(|\alpha|^2-|\alpha e^{i\Delta}|^2)/2}\ket{\alpha e^{i\Delta}}$.
+
+\ex 
+
+\ex 
+
+\ex $$\begin{aligned}
+    B\ket{2,0}
+    = & \frac{1}{\sqrt{2}}Bb^\dagger b^\dagger\ket{0,0}
+    = \frac{1}{\sqrt{2}}Bb^\dagger(B^\dagger B)b^\dagger(B^\dagger B)\ket{0,0}
+    = \frac{1}{\sqrt{2}}(Bb^\dagger B^\dagger)^2\ket{0,0}
+    \\ = & \frac{1}{\sqrt{2}}(-a^\dagger\sin\theta+b^\dagger\cos\theta)^2\ket{0,0}
+    \\ = & \frac{1}{\sqrt{2}}(-a^\dagger\sin\theta+b^\dagger\cos\theta)(-\sin\theta\ket{0,1}+\cos\theta\ket{1,0})
+    \\ = & \frac{1}{\sqrt{2}}(\sin^2\theta\ket{0,2}-2\sin\theta\cos\theta\ket{1,1}+\cos^2\theta\ket{2,0})
+\end{aligned}$$
+
+\ex $$\begin{aligned}
+    & B\ket{\alpha,\beta}
+    \\ = & B\left(e^{-|\alpha|^2/2}\sum_{m=0}^\infty\frac{\alpha^m}{\sqrt{m!}}\ket{m}\right)\left(e^{-|\beta|^2/2}\sum_{n=0}^\infty\frac{\beta^n}{\sqrt{n!}}\ket{n}\right)
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2}B\left(\sum_{m=0}^\infty\frac{(\alpha b^\dagger)^m}{m!}\ket{0}\right)\left(\sum_{n=0}^\infty\frac{(\beta a^\dagger)^n}{n!}\ket{0}\right)
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2}\sum_{m=0}^\infty\sum_{n=0}^\infty\frac{\alpha^m\beta^n}{m!n!}(Bb^\dagger B^\dagger)^m(Ba^\dagger B^\dagger)^n\ket{0,0}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2}\sum_{m=0}^\infty\sum_{n=0}^\infty\frac{\alpha^m\beta^n}{m!n!}(-a^\dagger\sin\theta+b^\dagger\cos\theta)^m(a^\dagger\cos\theta+b^\dagger\sin\theta)^n\ket{0,0}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2}\sum_{m=0}^\infty\sum_{n=0}^\infty\frac{\alpha^m\beta^n}{m!n!}\sum_{k=0}^m\sum_{l=0}^nC_m^kC_n^l(-\sin\theta)^k(\cos\theta)^{m-k}(\cos\theta)^l(\sin\theta)^{n-l}
+    \\ & \sqrt{(k+l)!(m+n-k-l)!}\ket{k+l,m+n-k-l}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2} \sum_{m=0}^\infty\sum_{n=0}^\infty\sum_{k=0}^m\sum_{l=0}^n \frac{\alpha^k}{k!} \frac{\alpha^{m-k}}{(m-k)!} \frac{\beta^l}{l!} \frac{\beta^{n-l}}{(n-l)!} (-\sin\theta)^k(\cos\theta)^{m-k}
+    \\ & (\cos\theta)^l(\sin\theta)^{n-l}\sqrt{(k+l)!(m+n-k-l)!}\ket{k+l,m+n-k-l}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2} \sum_{k=0}^\infty\frac{(-\alpha\sin\theta)^k}{k!} \sum_{l=0}^\infty\frac{(\beta\cos\theta)^l}{l!} \sum_{p=0}^\infty\frac{(\alpha\cos\theta)^p}{p!} \sum_{q=0}^\infty\frac{(\beta\sin\theta)^q}{q!}
+    \\ & \sqrt{(k+l)!(p+q)!}\ket{k+l,p+q}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2} \sum_{m=0}^\infty\frac{1}{\sqrt{m!}}\sum_{k=0}^mC_m^k(-\alpha\sin\theta)^k(\beta\cos\theta)^{m-k} 
+    \\ & \sum_{n=0}^\infty\frac{1}{\sqrt{n!}}\sum_{p=0}^nC_n^p(\alpha\cos\theta)^p(\beta\sin\theta)^{n-p} \ket{m,n}
+    \\ = & e^{-(|\alpha|^2+|\beta|^2)/2} \sum_{m=0}^\infty\sum_{n=0}^\infty \frac{(-\alpha\sin\theta+\beta\cos\theta)^m(\alpha\cos\theta+\beta\sin\theta)^n}{\sqrt{m!\cdot n!}} \ket{m,n}
+    \\ = & \ket{-\alpha\sin\theta+\beta\cos\theta,\alpha\cos\theta+\beta\sin\theta}
+\end{aligned}$$
+
+\ex
+
+\ex $$\begin{aligned}
+    K\ket{\alpha}\ket{n}
+    = & e^{i\chi La^\dagger ab^\dagger b}\sum_{k=0}^\infty \frac{\alpha^k}{\sqrt{k!}} \ket{k} \ket{n}(\text{global phase omitted})
+    \\ = & \sum_{k=0}^\infty \sum_{l=0}^\infty \frac{\alpha^k(i\chi La^\dagger ab^\dagger b)^l}{\sqrt{k!}l!} \ket{k} \ket{n}
+    \\ = & \sum_{k=0}^\infty \sum_{l=0}^\infty \frac{\alpha^k(i\chi Lkn)^l}{\sqrt{k!}l!} \ket{k} \ket{n}
+    \\ = & \sum_{k=0}^\infty \frac{\alpha^k\exp(i\chi Lkn)}{\sqrt{k!}} \ket{k} \ket{n}
+    \\ = & \sum_{k=0}^\infty \frac{1}{\sqrt{k}} (\alpha e^{i\chi Ln})^k \ket{k} \ket{n}
+    \\ = & \ket{\alpha e^{i\chi Ln}} \ket{n}
+\end{aligned}$$

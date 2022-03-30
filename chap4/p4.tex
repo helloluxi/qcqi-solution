@@ -1,0 +1,37 @@
+\section*{Chapter Problems}
+\addcontentsline{toc}{section}{Chapter Problems}
+
+\prob Let $O(f)$ be the oracle implementing $(x,y)\rightarrow(x,y\oplus f(x))$, and controlled $U^k$-gate denote the gate group that for each $k\in\{1,2,\cdots,n\}$ the $k$-th control qubits controls a $diag(1,\exp(-2\pi i\frac{2^k}{2^n}))$-transform for the target qubit.
+The total gate cost is $2T+n$.
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw {/}^m & \multigate{1}{O(f)} & \qw & \multigate{1}{O(f)^\dagger} & \qw \\
+    & \qw {/}^n & \ghost{O(f)} & \ctrl{1} & \ghost{O(f)^\dagger} & \qw \\
+    & \qw & \qw & \gate{U^k} & \qw & \qw
+}$$
+
+\prob Let $k = \lceil \log n \rceil$.
+First we add $2^k-n$ ancilla $\ket{0}$-state qubits to the input.
+Then we can pack them into $2^{k-1}$ pairs, add an ancilla inited qubit and apply a Toffoli gate for each pair.
+After $k$ iterations only one ancilla qubit is left, which is then used for controlling the target qubit.
+Finally we uncompute the iterations.
+The total depth is $2k+1$, which is $O(\log n)$.
+
+\prob (1) pass.
+
+(2) The freedom degree of $H$ is
+$$4^n=\underbrace{2}_{complex}\times\underbrace{2^n\times(2^n-1)}_{non-diagonal}+\underbrace{2^n}_{real\& diagonal},$$
+which is equal to the number of possibilities of $g$ is $4^n$.
+
+(3) Analogous to Ex.4.51.
+
+(4) Directly follows Eq.(4.103).
+
+(5) $U=\exp(-iH)=\exp(-iH\Delta)^k=\left[\prod_g\exp(-ih_gg\Delta)\right]^k+O(4^n\Delta^2)^k=\left[\prod_g\exp(-ih_gg\Delta)\right]^k+O(4^n\Delta)$.
+
+(6) $\varepsilon=\frac{4^n}{k}$ $\Rightarrow$ $k=4^n\varepsilon$ $\Rightarrow$ There are $4^n$ terms of $\exp(-ih_gg\Delta)$, each takes $O(n)$ operations, hence the total operations are $O(n16^n/\varepsilon)$.
+
+\prob \todo
+
+\prob \todo
+
+\prob \todo

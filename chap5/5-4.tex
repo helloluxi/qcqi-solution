@@ -1,0 +1,55 @@
+\section{General applications of the quantum Fourier transform}
+
+\ex $$\begin{aligned}
+    \hat{f}(l) = & \frac{1}{\sqrt{N}}\sum_{k\in\{0,r,\cdots,N-r\}}e^{-2\pi ilk/N}\left[\sum_{x=0}^{r-1}e^{-2\pi ilx/N}f(x)\right]
+    \\ = & \begin{cases}
+    \frac{\sqrt{N}}{r}\sum_{x=0}^{r-1}e^{-2\pi ilx/N}f(x),&\text{$l$ is an integer multiple of $N/r$}\\
+    0,&\text{otherwise}
+\end{cases}.
+\end{aligned}$$ 
+
+\redstar Consider $l=kN/r(k\in\mathbb{Z})$ we have
+$$\hat{f}(k\frac{N}{r}) = \sqrt{\frac{N}{r}}\cdot\frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi ikx/r}f(x).$$
+
+\ex (1) $$\begin{aligned}
+    U_y\ket{\hat{f}(l)}
+    = & U_y\cdot\frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi ilx/r}\ket{f(x)}
+    = \frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{-2\pi ilx/r}\ket{f(x+y)}
+    \\ = & \frac{1}{\sqrt{r}}e^{2\pi ily/r}\sum_{x=0}^{r-1}e^{-2\pi il(x+y)/r}\ket{f(x+y)}
+    = e^{2\pi ily/r}\ket{\hat{f}(l)}
+\end{aligned}$$
+
+(2) $$\begin{aligned}
+    U_y\ket{f(x_0)}
+    = & \cdot\frac{1}{\sqrt{r}}\sum_{x=0}^{r-1}e^{2\pi ilx_0/r}U_y\ket{\hat{f}(l)}
+    \\ = & \frac{1}{\sqrt{r}}e^{2\pi ily/N}\sum_{l=0}^{r-1}e^{2\pi ilx_0/N}\ket{\hat{f}(l)}
+    \\ \overset{iQFT}{\longrightarrow} & \frac{1}{\sqrt{r}}e^{2\pi ily/N}\sum_{l=0}^{r-1}\ket{\tilde{l/r}}\ket{\hat{f}(l)}
+\end{aligned}$$
+
+\ex $$\begin{aligned}
+    \ket{\hat{f}(l)}
+    = & \frac{1}{r}\sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(x_1,x_2)}
+    \\ = & \frac{1}{r}\sum_{x_1=0}^{r-1}\sum_{x_2=0}^{r-1}e^{-2\pi i(l_1x_1+l_2x_2)/r}\ket{f(0,x_2+sx_1)}
+    \\ = & \frac{1}{r}\sum_{x_1=0}^{r-1}\sum_{j=sx_1}^{r-1+sx_1}e^{-2\pi i(l_1x_1+l_2(j-sx_1))/r}\ket{f(0,j)}
+    \\ = & \frac{1}{r}\sum_{x_1=0}^{r-1}e^{-2\pi isx_1(l_1/s-l_2)/r}\sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)}
+    \\ = & \sum_{j=0}^{r-1}e^{-2\pi il_2j/r}\ket{f(0,j)}
+\end{aligned}$$
+
+\ex $$\begin{aligned}
+    LHS
+    = & \frac{1}{r} \sum_{l_1=0}^{r-1} \sum_{l_2=0}^{r-1} \sum_{j=0}^{r-1} e^{2\pi i(l_1x_1+l_2x_2-l_2j)/r} \ket{f(0,j)}
+    \\ = & \frac{1}{r} \sum_{l_2=0}^{r-1} \sum_{j=0}^{r-1} e^{2\pi il_2(sx_1+x_2-j)/r} \ket{f(0,j)}
+    \\ = & \ket{f(0,x_2+sx_1)} = \ket{f(x_1,x_2)}
+\end{aligned}$$
+
+\ex \todo
+
+\ex \todo
+
+\ex {\color{red}Can't understand at all.}
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo

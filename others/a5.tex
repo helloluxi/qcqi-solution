@@ -1,0 +1,11 @@
+\chapter{Public key cryptography and the RSA cryptosystem}
+
+\ex $n=pq=33$, $\varphi(n)=(p-1)(q-1)=20$.
+Choose $e=7$ that is relatively prime to $\varphi(n)$.
+Then $d=7^{20-1}=3$ is the multiplicative inverse of 7 modulo 20.
+We encode the letters of the word 'QUANTUM' by their alphabetical order as 17-21-1-14-20-21-13, then encrypt them via $E(M)=M^7(\text{mod }33)$ as 8-21-1-20-26-21-7.
+Finally we can decrypt them via $D(N)=N^3(\text{mod }33)$ as 17-21-1-14-20-21-13, that is 'QUANTUM'.
+
+\ex $ed=1+k\varphi(n)=1+(k\varphi(n)/r)r$, where $k\varphi(n)/r\in\mathbb{Z}$, hence $d$ is a multiplicative inverse of $e$ modulo $r$.
+
+\prob \redstar I may soon open a new repository for the code.

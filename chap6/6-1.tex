@@ -1,0 +1,24 @@
+\chapter{Quantum search algorithms}
+
+\section{The quantum search algorithm}
+
+\ex $$2\dyadic{0}{0}-I=\dyadic{0}{0}-\sum_{i\neq 0}\dyadic{i}{i}.$$
+
+\ex $$\begin{aligned}
+    (2\dyadic{\psi}{\psi}-I)\sum_k\alpha_k\ket{k}
+    = & \sum_k(2\alpha_k\inner{\psi}{k})\ket{\psi}-\sum_k\alpha_k\ket{k}
+    \\ = & (\sum_{k,l}2\alpha_k\frac{\inner{l}{k}}{\sqrt{N}})\ket{\psi}-\sum_k\alpha_k\ket{k}
+    \\ = & \frac{2}{\sqrt{N}} (\sum_k\alpha_k) \ket{\psi} - \sum_k\alpha_k\ket{k}
+    \\ = & \frac{2\sum_k\alpha_k}{N}\sum_l\ket{l} - \sum_k\alpha_k\ket{k}
+    \\ = & \sum_k(2\langle\alpha\rangle-\alpha_k)\ket{k}
+\end{aligned}$$
+
+\ex pass.
+
+\ex pass.
+
+\ex $$ \Qcircuit @C=1em @R=.7em {
+    & \lstick{\ket{q}} & \qw & \ctrl{1} & \qw \\
+    & \lstick{N} & {/} \qw & \multigate{1}{O} & \qw \\
+    & \lstick{\ket0} & \qw & \ghost{O} & \qw
+}$$

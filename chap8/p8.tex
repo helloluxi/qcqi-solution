@@ -1,0 +1,36 @@
+\section*{Chapter Problems}
+\addcontentsline{toc}{section}{Chapter Problems}
+
+\prob First write Eq.~(8.188) in the matrix form
+
+$$\frac{\operatorname{d}}{\operatorname{d}t}\begin{pmatrix}
+    \rho_{11} & \rho_{12} \\
+    \rho_{21} & \rho_{22}
+\end{pmatrix} = -\frac{\lambda}{2}\begin{pmatrix}
+    -2\rho_{22} & \rho_{12} \\
+    \rho_{21} & 2\rho_{22}
+\end{pmatrix}.$$
+
+Then solve it
+$$\begin{cases}
+    \rho_{11}(t) & = \rho_{11}(0) + \rho_{22}(0)(1-\exp{-\lambda t}) \\
+    \rho_{12}(t) & = \rho_{12}(0)e^{-\lambda t/2}, \\
+    \rho_{21}(t) & = \rho_{21}(0)e^{-\lambda t/2}, \\
+    \rho_{22}(t) & = \rho_{22}(0)\exp{-\lambda t}.
+\end{cases}$$
+
+From Ex. 8.22 we see $\rho(t)=E_0(t)^\dagger\rho(0)E_0(t)+E_1(t)^\dagger\rho(0)E_1(t)$, where
+$$
+    E_0(t) = \begin{pmatrix}
+        1 & 0 \\
+        0 & e^{-\lambda t/2}
+    \end{pmatrix}, \qquad
+    E_1(t) = \begin{pmatrix}
+        0 & \sqrt{1-\exp{-\lambda t}} \\
+        0 & 0
+    \end{pmatrix}.
+$$
+
+\prob
+
+\prob

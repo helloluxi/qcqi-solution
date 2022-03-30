@@ -1,0 +1,237 @@
+\section{Controlled operations}
+
+\ex $$\frac{1}{\sqrt{2}}\begin{pmatrix}
+    1 & 1 & & \\
+    1 & -1 & & \\
+    & & 1 & 1 \\
+    & & 1 & -1
+\end{pmatrix},\qquad\frac{1}{\sqrt{2}}\begin{pmatrix}
+    1 & & 1 & \\
+    & 1 & & 1 \\
+    1 & & -1 & \\
+    & 1 & & -1
+\end{pmatrix}$$.
+
+\ex Using $HIH=I$ and $HZH=X$ we have
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \qw \\
+    & \gate{H} & \gate{Z} & \gate{H} & \qw
+}$$
+
+\ex They both obtain the following transformation.
+$$\ket{00}\rightarrow\ket{00},\qquad\ket{01}\rightarrow\ket{01},\qquad\ket{10}\rightarrow\ket{10},\qquad\ket{11}\rightarrow-\ket{11}$$
+
+\ex $$\begin{pmatrix}
+    \rho_{11} & \rho_{12} & \rho_{13} & \rho_{14} \\
+    \rho_{21} & \rho_{22} & \rho_{23} & \rho_{24} \\
+    \rho_{31} & \rho_{32} & \rho_{33} & \rho_{34} \\
+    \rho_{41} & \rho_{42} & \rho_{43} & \rho_{44}
+\end{pmatrix}\Rightarrow\begin{pmatrix}
+    \rho_{11} & \rho_{12} & \rho_{14} & \rho_{13} \\
+    \rho_{21} & \rho_{22} & \rho_{24} & \rho_{23} \\
+    \rho_{41} & \rho_{42} & \rho_{44} & \rho_{43} \\
+    \rho_{31} & \rho_{32} & \rho_{34} & \rho_{33}
+\end{pmatrix}$$.
+
+\ex pass.
+
+\ex $$\begin{aligned}
+    & \begin{pmatrix}
+        I &   &   &   \\
+        & V &   &   \\
+        &   & I &   \\
+        &   &   & V
+    \end{pmatrix}\begin{pmatrix}
+        I &   &   &   \\
+        & I &   &   \\
+        &   &   & I \\
+        &   & I &  
+    \end{pmatrix}\begin{pmatrix}
+        I &           &   &   \\
+        & V^\dagger &   &   \\
+        &           & I &   \\
+        &           &   & V^\dagger
+    \end{pmatrix}\begin{pmatrix}
+        I &   &   &   \\
+        & I &   &   \\
+        &   &   & I \\
+        &   & I &  
+    \end{pmatrix}\begin{pmatrix}
+        I &   &   &   \\
+        & I &   &   \\
+        &   & V &   \\
+        &   &   & V
+    \end{pmatrix}
+    \\ = & \begin{pmatrix}
+        I &            &           &   \\
+        & VV^\dagger &           &   \\
+        &            & V^\dagger &   \\
+        &            &           & V^2
+    \end{pmatrix} = \begin{pmatrix}
+        I &   &   &   \\
+        & I &   &   \\
+        &   & I &   \\
+        &   &   & U
+    \end{pmatrix}.
+\end{aligned}$$
+
+\ex Let $V^2=U$ and $V=AXBXC$, combining (Figure 4.6) and (Figure 4.8) in the book we get a circuit like
+
+$$\Qcircuit @C=.7em @R=.5em {
+    & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \qw & \qw & \qw & \qw & \qw & \ctrl{1} & \gate{\alpha} & \ctrl{2} & \qw & \ctrl{2} & \qw & \qw \\
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{\alpha} & \targ & \gate{-\alpha} & \ctrl{1} & \qw & \ctrl{1} & \qw & \targ & \qw & \qw & \qw & \qw & \qw & \qw \\
+    & \gate{C} & \targ & \gate{B} & \targ & \gate{A} & \qw & \gate{A^\dagger} & \targ & \gate{B^\dagger} & \targ & \gate{C^\dagger} & \qw & \gate{C} & \targ & \gate{B} & \targ & \gate{A} & \qw 
+    \gategroup{2}{2}{3}{6}{.5em}{--}
+    \gategroup{2}{8}{3}{12}{.5em}{--}
+    \gategroup{1}{14}{3}{18}{.5em}{--}
+}$$
+where $\alpha$-gate stands for the one-qubit gate $diag(1,e^{i\alpha})$.
+
+By collapsing $AA^\dagger$ and $C^\dagger C$ on the third qubit wire and moving the $\alpha$-gate on the first qubit wire we get
+
+$$\Qcircuit @C=.7em @R=.5em {
+    & \qw & \qw & \qw & \qw & \gate{\alpha} & \ctrl{1} & \qw & \qw & \qw & \qw & \ctrl{1} & \ctrl{2} & \qw & \ctrl{2} & \qw & \qw \\
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{\alpha} & \targ & \gate{-\alpha} & \ctrl{1} & \qw & \ctrl{1} & \targ & \qw & \qw & \qw & \qw & \qw \\
+    & \gate{C} & \targ & \gate{B} & \targ & \qw & \qw & \qw & \targ & \gate{B^\dagger} & \targ & \qw & \targ & \gate{B} & \targ & \gate{A} & \qw 
+}$$
+
+Notice that both the following circuits transfer $(x,y,z)$ into $(x,x\oplus y,x\oplus y\oplus z)$.
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \ctrl{2} & \qw \\
+    & \ctrl{1} & \targ & \qw & \qw \\
+    & \targ & \qw & \targ & \qw
+} = \Qcircuit @C=1em @R=.7em {
+    & \ctrl{1} & \qw & \qw \\
+    & \targ & \ctrl{1} & \qw \\
+    & \qw & \targ & \qw
+}$$
+
+Using this identity we can turn
+$$\Qcircuit @C=.7em @R=.5em {
+    & \qw & \qw & \qw & \qw & \gate{\alpha} & \ctrl{1} & \qw & \ctrl{1} & \ctrl{1} & \qw & \qw & \qw & \ctrl{1} & \ctrl{2} & \qw & \ctrl{2} & \qw & \qw \\
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{\alpha} & \targ & \gate{-\alpha} & \targ & \targ & \ctrl{1} & \qw & \ctrl{1} & \targ & \qw & \qw & \qw & \qw & \qw \\
+    & \gate{C} & \targ & \gate{B} & \targ & \qw & \qw & \qw & \qw & \qw & \targ & \gate{B^\dagger} & \targ & \qw & \targ & \gate{B} & \targ & \gate{A} & \qw 
+    \gategroup{1}{10}{3}{11}{.5em}{--}
+    \gategroup{1}{13}{3}{15}{.5em}{--}
+}$$
+into
+$$\Qcircuit @C=.7em @R=.5em {
+    & \qw & \qw & \qw & \qw & \gate{\alpha} & \ctrl{1} & \qw & \ctrl{1} & \qw & \ctrl{2} & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw & \ctrl{2} & \qw & \qw \\
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{\alpha} & \targ & \gate{-\alpha} & \targ & \ctrl{1} & \qw & \targ & \qw & \targ & \ctrl{1} & \qw & \qw & \qw & \qw \\
+    & \gate{C} & \targ & \gate{B} & \targ & \qw & \qw & \qw & \qw & \targ & \targ & \qw & \gate{B^\dagger} & \qw & \targ & \gate{B} & \targ & \gate{A} & \qw 
+    \gategroup{1}{6}{2}{9}{.5em}{--}
+    \gategroup{1}{10}{3}{12}{.5em}{--}
+    \gategroup{1}{14}{3}{15}{.5em}{--}
+}$$
+
+First we collapse the pair of CNOT gates above the $B^\dagger$-gate.
+Since the gates in the first dashed frame implements the unitary operator $diag(1,1,1,e^{i2\alpha})$, we can move them to the very right of the circuit.
+Finally another pair of CNOT gates come together and we collapse them, and we get
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \qw & \qw & \ctrl{2} & \qw & \qw & \qw & \ctrl{2} & \qw & \gate{\alpha} & \ctrl{1} & \qw & \ctrl{1} & \qw \\
+    & \qw & \ctrl{1} & \qw & \qw & \qw & \ctrl{1} & \qw & \qw & \qw & \gate{\alpha} & \targ & \gate{-\alpha} & \targ & \qw \\
+    & \gate{C} & \targ & \gate{B} & \targ & \gate{B^\dagger} & \targ & \gate{B} & \targ & \gate{A} & \qw & & & & {} \gategroup{1}{11}{2}{14}{.7em}{--}
+}$$
+
+Reference: \url{https://quantumcomputing.stackexchange.com/questions/7082}
+
+\ex (1) $U=R_x(\theta)$:
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw & \qw \\
+    & \gate{R_z(\frac{\pi}{2})R_y(\frac{\theta}{2})} & \targ & \gate{R_y(-\frac{\theta}{2})} & \targ & \gate{R_z(-\frac{\pi}{2})} & \qw
+}$$
+
+(2) $U=R_y(\theta)$:
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \qw \\
+    & \gate{R_y(\frac{\theta}{2})} & \targ & \gate{R_y(-\frac{\theta}{2})} & \targ & \qw
+}$$
+
+\ex pass.
+
+\ex (1) $$\Qcircuit @C=1em @R=.7em {
+    & \ctrl{1} & \ctrl{1} & \ctrl{1} & \qw \\
+    & \ctrl{1} & \targ & \ctrl{1} & \qw \\
+    & \targ & \ctrl{-1} & \targ & \qw
+}$$
+
+(2) $$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \qw \\
+    & \ctrl{1} & \targ & \ctrl{1} & \qw \\
+    & \targ & \ctrl{-1} & \targ & \qw
+}$$
+
+(3) Let $V=\frac{1}{2}\begin{pmatrix}
+    1-i & 1+i \\
+    1+i & 1-i
+\end{pmatrix}$, then
+
+$$
+\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \qw \\
+    & \ctrl{1} & \targ & \ctrl{1} & \qw \\
+    & \targ & \ctrl{-1} & \targ & \qw
+}
+=
+\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \qw \\
+    & \targ & \ctrl{1} & \targ & \qw \\
+    & \ctrl{-1} & \targ & \ctrl{-1} & \qw
+}
+=
+\Qcircuit @C=1em @R=.7em {
+    & \qw & \qw & \ctrl{1} & \qw & \ctrl{1} & \ctrl{2} & \qw & \qw \\
+    & \targ & \ctrl{1} & \targ & \ctrl{1} & \targ & \qw & \targ & \qw \\
+    & \ctrl{-1} & \gate{V} & \qw & \gate{V^\dagger} & \qw & \gate{V} & \ctrl{-1} & \qw
+}
+$$
+
+(4) In the figure above, observing that the 6th gate is commutative with the 3rd, 4th, 5th gate, and that the last two CNOT gates are commutative, we can reformat it as   
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \qw & \qw & \ctrl{2} & \ctrl{1} & \qw & \qw & \ctrl{1} & \qw \\
+    & \targ & \ctrl{1} & \qw & \targ & \ctrl{1} & \targ & \targ & \qw \\
+    & \ctrl{-1} & \gate{V} & \gate{V} & \qw & \gate{V^\dagger} & \ctrl{-1} & \qw & \qw
+    \gategroup{2}{2}{3}{3}{.7em}{--}
+    \gategroup{2}{6}{3}{7}{.7em}{--}
+}$$
+
+The gates in either dashed frame can be replaced by a single two-qubit gate, hence we obtain a 5 two-qubit gates construction.
+
+Reference: \url{https://journals.aps.org/pra/pdf/10.1103/PhysRevA.53.2855}
+
+\ex Fill all blanks with 4, then we can directly verify the proposition, with $\theta(c_1,c_2,t)=(-1)^{\neg c_1\wedge c_2}$.
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    & \ctrl{1} & \qw & \ctrl{2} & \targ & \ctrl{1} & \targ & \targ & \qw \\
+    & \ctrl{1} & \ctrl{1} & \qw & \qw & \targ & \qw & \ctrl{-1} & \qw \\
+    & \targ & \targ & \targ & \ctrl{-2} & \ctrl{-1} & \ctrl{-2} & \ctrl{-2} & \qw \\
+    & & \mbox{flip z} & & & \mbox{flip y} & & \mbox{flip x} & {}
+    \gategroup{1}{2}{3}{4}{.7em}{--}
+    \gategroup{1}{5}{3}{7}{.7em}{--}
+    \gategroup{1}{8}{3}{8}{.7em}{--}
+}$$
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    & \qw &\ctrl{1} & \qw & \ctrl{1} & \ctrl{1} & \qw \\
+    & \qw &\ctrl{1} & \qw & \ctrl{1} & \ctrl{1} & \qw \\
+    & \qw &\ctrl{1} & \qw & \ctrl{1} & \ctrl{1} & \qw \\
+    & \qw &\ctrl{1} & \qw & \ctrl{1} & \ctrl{2} & \qw \\
+    & \ctrl{1} & \targ & \ctrl{1} & \targ & \qw & \qw \\
+    & \gate{V} & \qw & \gate{V^\dagger} & \qw & \gate{V} & \qw
+}$$
+
+\ex I have found an answer that uses only $O(n)$ gates. \urlref{https://cs.stackexchange.com/questions/40933}
+
+\ex Let $c_n$ be the number of gates needed. From the figure in (Ex. 4.28) we know 
+$$\underbrace{c_n}_{C^n(U)} = \underbrace{c_{n-1}}_{C^{n-1}(V)} + 2\underbrace{O(n)}_{C^{n-1}(X)} + 2\underbrace{O(1)}_{C(V)\& C(V^\dagger)} = c_{n-1} + O(n).$$
+
+By induction we have
+$$c_n = O(n^2).$$
+
+\ex pass.

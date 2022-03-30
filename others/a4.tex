@@ -1,0 +1,74 @@
+\chapter{Number theory}
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex (1) For any $a$ such that $1\le a\le p-1$, $\gcd(a,p)=1$, hence $\exists u,v\in\mathbb{Z}$ such that $ua+vp=1$, or $ua=1(\mathrm{mod}~p)$.
+Thus $u=a^{-1}$ modulo $p$.
+(2) The integer multiples of $p$.
+
+\ex By brute-force search we get $17^{-1}=17(\mathrm{mod}~24)$.
+
+\ex Since $(n+1)^n=1+n\cdot n+C_n^2\cdot n^2+\cdots=1(\mathrm{mod}~n^2)$, we know $(n+1)^{n-1}$ is the multiplicative inverse of $n+1$ modulo $n^2$.
+
+\ex For the equlity $ab=1(\mathrm{mod}~n)$, multiply both sides by $b'$ we get $b=b'(\mathrm{mod}~n)$.
+
+\ex Let $a=\prod_ip_i^{a_i}$ and $b=\prod_ip_i^{b_i}$, where $p_i$ is the $i$-th prime number, then $\gcd(a,b)=\prod_ip_i^{\min(a_i,b_i)}$.
+Since $6825=3\times5^2\times7\times11$ and $1430=2\times5\times11\times13$, we dedece $\gcd(6825,1430)=5\times11=55$.
+
+\ex $\varphi(187)=\varphi(11)\varphi(17)=10\times16=160$.
+
+\ex For $n=p^\alpha$ where $p$ is prime and $\alpha\in\mathbb{Z}$ we have
+
+$$\sum_{d|n}\varphi(d) = \sum_{d=0}^{\alpha}\varphi(p^d) = 1 + \sum_{d=1}^{\alpha}p^{d-1}(p-1) = 1 + (p^\alpha - 1) = n.$$
+
+For general case where $n=\prod_ip_i^{n_i}$ we have
+
+$$\sum_{d|n}\varphi(d) = \sum_{\prod_ip_i^{d_i}|\prod_ip_i^{n_i}}\varphi\left(\prod_ip_i^{d_i}\right) = \prod_i\sum_{d_i=1}^{n_i}\varphi(p_i^{d_i}) = \prod_i p_i^{n_i} = n.$$
+
+\ex For any $a,b\in\mathbb{Z}_n^*$, since $b^{-1}a^{-1}ab=b^{-1}b=1$ modulo $n$, $ab$ has a multiplication inverse modulo $n$, hence $ab\in\mathbb{Z}_n^*$.
+Therefore $\mathbb{Z}_n^*$ forms a subgroup.
+It is obvious that $|\mathbb{Z}_n^*|=\varphi(n)$.
+
+\ex pass.
+
+\ex pass.
+
+\ex For any $a\in\mathbb{Z}_n^*$, $|\langle a\rangle|$ divides $|\mathbb{Z}_n^*|=\varphi(n)$, thus $a^{\varphi(n)} = \left(a^{|\langle a\rangle|}\right)^{\frac{|\mathbb{Z}_n^*|}{|\langle a\rangle|}} = 1^{|\frac{\mathbb{Z}_n^*|}{|\langle a\rangle|}} = 1$ modulo $n$.
+
+\ex Since there exists $u,v\in\mathbb{Z}$ such that 
+$$
+ur+v\varphi(N)=\gcd(r,\varphi(N)),
+$$
+we have $x^{\gcd(r,\varphi(N))}=(x^r)^u(x^{\varphi(N)})^v=1$ modulo $N$.
+Since $\gcd(r,\varphi(N))\le r$, we deduce that $\gcd(r,\varphi(N))=r$, so $r$ divides $\varphi(N)$.
+
+\ex First we efficiently factorize $N$ as $N=\prod_ip_i^{n_i}$.
+Then for each $i$ we compute the order of $x$ modulo $p_i^{n_i}$, as $r_i$.
+{\color{red}[Todo: Is this step efficient?]}
+Finally we calculate the least common multiple of those $r_i$, which is efficient by Ex. 5.15.
+
+\ex (1) $$\frac{19}{17}=1+\frac{2}{17}=1+\frac{1}{8+\frac{1}{2}}.$$
+
+(2) $$\frac{77}{65}=1+\frac{12}{65}=1+\frac{1}{5+\frac{5}{12}}=1+\frac{1}{5+\frac{1}{2+\frac{2}{5}}}=1+\frac{1}{5+\frac{1}{2+\frac{1}{2+\frac{1}{2}}}}.$$
+
+\ex By $q_np_{n-1}-p_nq_{n-1} = q_{n-2}p_{n-1}-p_{n-2}q_{n-1}$ we know $\{q_np_{n-1}-p_nq_{n-1}\}$ is a geometric series with ratio $-1$.
+Since $q_1p_0-p_1q_0=-1$, we deduce that $q_np_{n-1}-p_nq_{n-1}=(-1)^n$ for $n\ge 1$.
+Let $u=-q_{n-1}(-1)^n, v=(-1)^np_{n-1}$, then $up_n+vq_n=1$, which indicates that $\gcd(p_n,q_n)=1$.
+
+\prob (1) In the prime number theory the $\log$ is the natural logarithm, which makes this inequality fail for $n=1,2,3$.
+So I am treating it as 2-based logarithm.
+We have
+$$
+    \log C_{2n}^n = \log\frac{(2n)(2n-1)\cdots(n+1)}{(n)(n-1)\cdots(1)}
+    \ge \log(\underbrace{2\cdot2\cdots2}_{n\text{ copies}}) = n.
+$$
+
+(2) \todo
+
+(3) $$\log(2n)\pi(2n) = \sum_{p\le 2n}\log(2n) \ge \sum_{p\le 2n} \left\lfloor \frac{\log(2n)}{\log p} \right\rfloor \log p \ge \log C_{2n}^n \ge n.$$

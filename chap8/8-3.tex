@@ -1,0 +1,169 @@
+\section{Examples of quantum noise and quantum operations}
+
+\ex If not, i.e., $\det(O)=-1$, then we replace $O,S$ by $-O,-S$.
+
+\ex pass.
+
+\ex pass.
+
+\ex Let $\rho=(I+\vec{r}\cdot\vec{\sigma})/2$.
+Then $$\rho=\frac{1+r_x}{2}\dyadic{+}{+}+\frac{1-r_x}{2}\dyadic{-}{-}+(r_z-ir_y)\dyadic{+}{-}+(r_z+ir_y)\dyadic{-}{+}.$$
+
+And then,
+$$\mathcal{E}(\rho) = \frac{1+r_x}{2}\dyadic{+}{+}+\frac{1-r_x}{2}\dyadic{-}{-} = \frac{I+(\hat{x}\cdot\vec{r})\hat{x}\cdot\vec{\sigma}}{2}.$$
+
+So $\mathcal{E}$ acts on the Bloch sphere by projecting it into the $x$-axis.
+
+\ex Any non-trace-preserving quantum operation whose output dosen't have the form $(I+\vec{r}\cdot\vec{\sigma})/2$.
+
+\ex The verification of Eq.~(8.105) is omitted.
+For any density operator $\rho=(I+\vec{r}\cdot\vec{\sigma})/2$, since $\mathcal{E}$ is a linear operator, we have
+$$\mathcal{E}(\rho) = \frac{\mathcal{E}(I) + r_x\mathcal{E}(X) + r_y\mathcal{E}(Y) + r_z\mathcal{E}(Z)}{2} = \frac{I}{2}.$$
+
+\ex Let $\rho=(I+\vec{r}\cdot\vec{\sigma})/2$, the conclusion is obvious when $\vec{r}=0$.
+When $\vec{r}\neq 0$, we have
+$$\rho=\frac{1-r}{2}I+r\frac{I+\hat{r}\cdot\vec{\sigma}}{2}.$$
+
+Notice that $[(I+\hat{r}\cdot\vec{\sigma})/2]^k$ is constant for any $k\in\mathbb{Z}_+$, we have
+$$\tr\left(\frac{I+\hat{r}\cdot\vec{\sigma}}{2}\right)^k=\begin{cases}2,k=0\\1,k>0\end{cases}.$$
+
+Therefore,
+$$\begin{aligned}
+    \tr(\rho^k) = & \tr\left[ \sum_{j=0}^k C_k^j \left(\frac{1-r}{2}\right)^{k-j} r^j \left(\frac{I+\hat{r}\cdot\vec{\sigma}}{2}\right)^j \right]
+    \\ = & 2\left(\frac{1-r}{2}\right)^k + \sum_{j=1}^k C_k^j \left(\frac{1-r}{2}\right)^{k-j} r^j
+    \\ = & \left(\frac{1-r}{2}\right)^k + \left(\frac{1+r}{2}\right)^k.
+\end{aligned}$$
+
+Define 
+$$
+    f(r) := \left(\frac{1-r}{2}\right)^k + \left(\frac{1+r}{2}\right)^k
+    = \frac{1}{2^k}\sum_{j\text{ even}}C_k^jr^j,
+$$
+then we can see $f(r)$ is increasing about $r$.
+
+Meanwhile 
+$$\mathcal{E}(\rho)=\frac{1-(1-p)r}{2} I + (1-p)r \frac{I+\hat{r}\cdot\vec{\sigma}}{2}.$$
+
+So
+$$\tr(\mathcal{E}(\rho)^k) = f((1-p)r) \le f(r) = \tr(\rho^k).$$
+
+\ex \todo
+
+\ex The overall unitary matrix of the circuit is
+$$
+    \begin{pmatrix}
+        1 & & & \\
+        & & & 1 \\
+        & & 1 & \\
+        & 1 & & 
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 & & & \\
+        & 1 & & \\
+        & & \cos\frac{\theta}{2} & -\sin\frac{\theta}{2} \\
+        & & \sin\frac{\theta}{2} & \cos\frac{\theta}{2}
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+        1 & & & \\
+        & & \sin\frac{\theta}{2} & \cos\frac{\theta}{2} \\
+        & & \cos\frac{\theta}{2} & -\sin\frac{\theta}{2} \\
+        & 1 & & 
+    \end{pmatrix}.
+$$
+
+Hence
+$$E_0 = \bra{0_2}U\ket{0_2} = \begin{pmatrix}
+    U_{11} & U_{13} \\
+    U_{31} & U_{33}
+\end{pmatrix} = \begin{pmatrix}
+    1 & 0 \\
+    0 & \cos\frac{\theta}{2}
+\end{pmatrix},$$
+
+$$E_1 = \bra{1_2}U\ket{0_2} = \begin{pmatrix}
+    U_{21} & U_{23} \\
+    U_{41} & U_{43}
+\end{pmatrix} = \begin{pmatrix}
+    0 & \sin\frac{\theta}{2} \\
+    0 & 0
+\end{pmatrix}.$$
+
+\ex (1) \urlref{https://quantumcomputing.stackexchange.com/questions/6828}
+
+(2) $$\begin{aligned}
+    \sum_kE_k^\dagger E_k = & \sum_{n\ge k}\sum_k C_n^k (1-\gamma)^{n-k}\gamma^k \dyadic{n}{n}
+    \\ = & \sum_n\sum_{m=0}^n C_n^m (1-\gamma)^m\gamma^{n-m} \dyadic{n}{n}(\text{Let }m=n-k)
+    \\ = & \sum_n\dyadic{n}{n}
+    \\ = & I.
+\end{aligned}$$
+
+\ex $$\mathcal{E}_{AD}(\rho)=\begin{pmatrix}
+    a+\gamma c & \sqrt{1-\gamma} b \\
+    \sqrt{1-\gamma} b^* & (1-\gamma) c
+\end{pmatrix}.$$
+
+\ex $$\begin{aligned}
+    & \mathcal{E}_{AD}\otimes\mathcal{E}_{AD}(\dyadic{\psi}{\psi})
+    \\ = & \mathcal{E}_{AD}\otimes\mathcal{E}_{AD}(|a|^2\dyadic{01}{01}+ab^*\dyadic{01}{10}+a^*b\dyadic{01}{01}+|b|^2\dyadic{10}{10})
+    \\ = & |a|^2\mathcal{E}_{AD}(\dyadic{0}{0})\otimes\mathcal{E}_{AD}(\dyadic{1}{1}) + |b|^2\mathcal{E}_{AD}(\dyadic{1}{1})\otimes\mathcal{E}_{AD}(\dyadic{0}{0})
+    \\ & + ab^*\mathcal{E}_{AD}(\dyadic{0}{1})\otimes\mathcal{E}_{AD}(\dyadic{1}{0}) + a^*b\mathcal{E}_{AD}(\dyadic{1}{0})\otimes\mathcal{E}_{AD}(\dyadic{0}{1})
+    \\ = & |a|^2 \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix} \otimes \begin{pmatrix} \gamma & 0 \\ 0 & 1-\gamma \end{pmatrix} + |b|^2 \begin{pmatrix} \gamma & 0 \\ 0 & 1-\gamma \end{pmatrix} \otimes \begin{pmatrix} 1 & 0 \\ 0 & 0 \end{pmatrix}
+    \\ & + ab^*(1-\gamma) \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix} \otimes \begin{pmatrix} 0 & 0 \\ 1& 0 \end{pmatrix} + a^*b(1-\gamma) \begin{pmatrix} 0 & 0 \\ 1 & 0 \end{pmatrix} \otimes \begin{pmatrix} 0 & 1 \\ 0 & 0 \end{pmatrix}
+    \\ = & \begin{pmatrix}
+        \gamma & 0 & 0 & 0 \\
+        0 & |a|^2(1-\gamma) & ab^*(1-\gamma) & 0 \\
+        0 & a^*b(1-\gamma) & |a|^2(1-\gamma) & 0 \\
+        0 & 0 & 0 & 0
+    \end{pmatrix}
+    \\ = & (1-\gamma)\dyadic{\psi}{\psi} + \gamma[\text{tranform into }\dyadic{00}{00}].
+\end{aligned}$$
+
+\ex \todo
+
+\ex $$T=k_B\frac{E_1-E_0}{\ln\frac{p}{1-p}}.$$
+
+\ex The overall unitary matrix of the circuit is
+$$\begin{pmatrix}
+    1 & & & \\
+    & 1 & & \\
+    & & \cos\frac{\theta}{2} & -\sin\frac{\theta}{2} \\
+    & & \sin\frac{\theta}{2} & \cos\frac{\theta}{2}
+\end{pmatrix}.$$
+
+Hence
+$$E_0 = \bra{0_2}U\ket{0_2} = \begin{pmatrix}
+    1 & 0 \\
+    0 & \cos\frac{\theta}{2}
+\end{pmatrix},$$
+
+$$E_1 = \bra{1_2}U\ket{0_2} = \begin{pmatrix}
+    0 & 0 \\
+    0 & \sin\frac{\theta}{2}
+\end{pmatrix}.$$
+
+\ex By $\tilde{E}_i\sum_ju_{ij}E_j$ we have
+$$\begin{cases}
+    u_{00} & = \sqrt{\frac{1+\sqrt{1-\lambda}}{2}}, \\
+    \sqrt{1-\lambda} u_{00} + \sqrt{\lambda} u_{01} & = \sqrt{\frac{1+\sqrt{1-\lambda}}{2}}, \\
+    u_{10} & = \sqrt{\frac{1-\sqrt{1-\lambda}}{2}}, \\
+    \sqrt{1-\lambda} u_{10} + \sqrt{\lambda} u_{11} & = -\sqrt{\frac{1-\sqrt{1-\lambda}}{2}}.
+\end{cases}$$
+
+The solution is
+$$
+u=\begin{pmatrix}
+    \sqrt{\frac{1+\sqrt{1-\lambda}}{2}} & \sqrt{\frac{1-\sqrt{1-\lambda}}{2}} \\
+    \sqrt{\frac{1-\sqrt{1-\lambda}}{2}} & -\sqrt{\frac{1+\sqrt{1-\lambda}}{2}}
+\end{pmatrix}.
+$$
+
+\ex \todo
+
+\ex pass.
+
+\ex \redstar From Ex. 8.22 we see the off-diagonal elements decay square-rootly as diagonal elements, hence $T_2=2T_1$?
+
+Phase damping only accelarates off-diagonal elements decaying, which makes $T_2\le 2T_1$?
+
+\ex \todo

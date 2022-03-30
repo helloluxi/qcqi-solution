@@ -1,0 +1,19 @@
+\section{Speeding up the solution of NP-complete problems}
+
+\section{Quantum search of an unstructured database}
+
+\section{Optimality of the search algorithm}
+
+\ex $\sum_x||\psi-x||^2 = \sum_x\left(||\psi||^2+||x||^2-(\inner{x}{\psi}+\inner{\psi}{x})\right) \ge 2N-2\sum_x|\inner{x}{\psi}| \ge 2N-2\sqrt{\sum_x|\inner{x}{\psi}|^2} = 2N-2\sqrt{N}$.
+
+\ex Replace $|\inner{x}{\psi_k^x}|<1/2$ by
+$$\frac{1}{N} \sum_x |\inner{x}{\psi_k^x}|<1/2,$$
+we have
+$$E_k = \sum_x ||\psi_k^x-x||^2 = 2N - 2\sum_x|\inner{x}{\psi_k^x}| \le 2N - N = N,$$
+hence
+$$4k^2 \ge D_k \ge (\sqrt{F_k}-\sqrt{E_k})^2 = (\sqrt{2N-2\sqrt{N}}-\sqrt{N})^2 = O(N),$$
+so $k$ is still $\Omega(\sqrt{N})$, and $O(\sqrt{N})$ oracle calls are still required.
+
+\ex pass.
+
+

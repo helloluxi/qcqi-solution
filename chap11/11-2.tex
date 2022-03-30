@@ -1,0 +1,71 @@
+\chapter{Entropy and information}
+
+\section{Shannon entropy}
+
+\section{Basic properties of entropy}
+
+\ex pass.
+
+\ex By setting $q=0$ we have $I(p)=I(p)+I(1)$, hence $I(1) = 0$.
+Since $I$ is smooth, it is differentible, thus we can calculate its derivative by its left derivative,
+$$\begin{aligned}
+    I'(p) = & \lim_{q\rightarrow 0^-}\frac{I(p) - I(p - q)}{q} = \lim_{q\rightarrow 0^-}\frac{-I(1-q/p)}{q}
+    \\ = & \lim_{q\rightarrow 0^-}\frac{I(1) - I(1-q/p)}{q} = \frac{I'(1)}{p}.
+\end{aligned}$$
+
+Let $k=I'(1)$.
+By solving the ODE with $I(1) = 0$ we get
+$$I(p) = k\log p.$$
+
+It follows that the average information gain is $k\sum_ip_i\log p_i$.
+
+\ex $H_{\text{bin}}'(p) = \log\frac{1-p}{p}$, so $H_{\text{bin}}'(p)>0$ when $p<1/2$ and $H_{\text{bin}}'(p)<0$ when $p>1/2$, therefore $H_{\text{bin}}(p)$ attains its maximum when $p=1/2$.
+
+\ex $H_{\text{bin}}'(p)=-1/p(1-p)<0$, hence $H_{\text{bin}}(p)$ is concave?
+
+\ex $$\begin{aligned}
+& H(p(x,y)||p(x)p(y))
+\\ = & -H(p(x,y)) - \sum_{x,y}p(x,y)\log p(x) - \sum_{x,y} p(x,y)\log p(y)
+\\ = & -H(p(x,y)) - \sum_x(\sum_y p(x,y))\log p(x) - \sum_y(\sum_x p(x,y))\log p(y)
+\\ = & -H(p(x,y)) - \sum_xp(x)\log p(x) - \sum_yp(y)\log p(y)
+\\ = & -H(p(x,y)) + H(p(x)) + H(p(y)).
+\end{aligned}$$
+
+From $H(p(x,y)||p(x)p(y))\ge 0$ we deduce that $H(X,Y) \le H(X) + H(Y)$, where the equality holds iff $p(x,y)=p(x)p(y)$, i.e., $X$ and $Y$ are independent.
+
+\ex $$\begin{aligned}
+    & H(X,Y)+H(Y,Z)-H(X,Y,Z)-H(Y)
+    \\ = & \sum_{x,y,z}p(x,y,z)\log\frac{p(x,y,z)p(y)}{p(x,y)p(y,z)}
+    \\ = & \sum_yp(y)\sum_{x,z}p(x,z|y)\log\frac{p(x,z|y)}{p(x|y)p(z|y)}
+    \\ = & \sum_yp(y)H(p(x,z|y)||p(x|y)p(z|y))
+    \\ \ge & 0.
+\end{aligned}$$
+
+The equality holds iff $p(x,z|y)=p(x|y)p(z|y)$, i.e., given $y$, $z$ is independent about $x$, which means $X\rightarrow Y\rightarrow Z$ forms a Markov chain.
+
+\ex $$\begin{aligned}
+    H(Y|X) = & -\sum_{x,y}p(x,y)\log\frac{p(x,y)}{p(x)}
+    \\ = & -\sum_xp(x)\sum_yp(y|x)\log p(y|x)
+    \\ = & \sum_xH(p(y|x))
+    \\ \ge & 0.
+\end{aligned}$$
+
+The equality holds iff for any $x$, $p(y|x)=1$ for a single value $y$, i.e., $y$ is a function of $x$.
+
+\ex In this case $H(X) = H(Y) = H(Z) = 2 \times (-1/2*\log(1/2)) = 1$ and $H(X, Y) = H(X, Z) = H(Y, Z) = 4 \times (-1/2*\log(1/2)) = 2$.
+But $H(X, Y, Z) = 4 \times (-1/2*\log(1/2)) = 2$.
+Thus $1 = H(X, Y: Z) > H(X: Z) + H(Y: Z) = 0$.
+
+\ex By simple calculation we have $2 = H(X_1: Y_1) + H(X_2: Y_2) > H(X_1, X_2: Y_1, Y_2) = 1$. 
+
+\ex $X\rightarrow Y\rightarrow Z$ is a Markov chain.
+
+$\Leftrightarrow$ $P(Z| X,Y) = P(Z| Y)$.
+
+$\Leftrightarrow$ $P(X, Y, Z) = P(Z| Y)P(X, Y)$.
+
+$\Leftrightarrow$ $P(X, Y, Z) = P(Y, Z)P(X| Y)$.
+
+$\Leftrightarrow$ $P(X| Y, Z) = P(X| Y)$.
+
+$\Leftrightarrow$ $Z\rightarrow Y\rightarrow X$ is a Markov chain.

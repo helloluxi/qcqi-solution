@@ -1,0 +1,58 @@
+\chapter{Introduction to computer science}
+
+\section{Modules for computation}
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo
+
+\ex \todo
+
+\ex (1) AND
+
+\begin{circuitikz}
+    % \draw[gray, dashed, ultra thin] (-1, -1) grid (8, 1);
+    
+    % Logic Ports
+    \node[nand port] (aa) at (2.5, 0){};
+    \node[nand port] (bb) at (4.5, 0){};
+    % Connections
+    \draw (aa.out) to[short,-*] (3, 0) |- (bb.in 1);
+    \draw (3, 0) |- (bb.in 2);
+    \draw (aa.in 1) -- ++(-0.5, 0) node[left](a){$a$};
+    \draw (aa.in 2) -- ++(-0.5, 0) node[left](b){$b$};
+    \draw (bb.out) -- ++(0.5, 0) node[right](ab){$a\&b$};
+\end{circuitikz}
+
+(2) XOR
+
+\begin{circuitikz}
+    % \draw[gray, dashed, ultra thin] (-1, -2) grid (9, 2);
+    
+    % Logic Ports
+    \node[nand port] (ll) at (2.5, 0){};
+    \node[nand port] (uu) at (5, 1){};
+    \node[nand port] (dd) at (5, -1){};
+    \node[nand port] (rr) at (6.8, 0){};
+    % Connections
+    \draw (uu.in 1) to[short,-*] ++(-3, 0) node(aa){}
+                    -- ++(-0.5, 0) node[left](a){$a$};
+    \draw (dd.in 2) to[short,-*] ++(-3, 0) node(bb){}
+                    -- ++(-0.5, 0) node[left](b){$b$};
+    \draw (aa) |- (ll.in 1);
+    \draw (bb) |- (ll.in 2);
+    \draw (ll.out) to[short,-*] ++(0.5, 0) node(lo){}
+                   |- (uu.in 2);
+    \draw (lo) |- (dd.in 1);
+    \draw (uu.out) |- (rr.in 1);
+    \draw (dd.out) |- (rr.in 2);
+    \draw (rr.out) -- ++(0.5, 0) node[right](ab){$a\wedge b$};
+\end{circuitikz}

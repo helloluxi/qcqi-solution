@@ -1,0 +1,90 @@
+\section{Stablizer codes}
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex For the case $n=1$, it can be directly verified that
+$$gg'=(-1)^{r(g)\Lambda r(g')}g'g.$$
+
+For general $n$, let $g=\otimes_{i=1}^ng_i$ and $g'=\otimes_{i=1}^ng'_i$.
+We have
+$$\begin{aligned}
+gg' = & \prod_{i=1}^n g_ig'_i
+= \prod_{i=1}^n (-1)^{r(g_i)\Lambda r(g'_i)} g'_ig_i
+\\ = & (-1)^{\sum_{i=1}^n r(g_i)\Lambda r(g'_i)} \prod_{i=1}^n g'_ig_i
+= (-1)^{r(g)\Lambda r(g')} g'g.
+\end{aligned}$$
+
+\ex Notice that for any $g\in S$, $g^2$ is either $I$ or $-I$.
+Hence if $-I\notin S$ then $g_j^2=I$ and $g_j\neq -I$ for all $j$, and if there exists $j$ such that $g_j^2=-I$ or $g_j=-I$ then $-I\in S$.
+
+\ex Use the fact that any $g\in S$, $g^2$ is either $I$ or $-I$, and $gg^\dagger=I$.
+
+\ex pass.
+
+\ex $UY_1U^\dagger = U(iX_1Z_1)U^\dagger = i(UX_1U^\dagger)(UZ_1U^\dagger) = i(X_1X_2)Z_1 = Y_1X_2$.
+
+\ex It is easy to verify that $(UV^\dagger)g(UV^\dagger)^\dagger=g$ for any $g\in\{Z_1,Z_2,X_1,X_2\}$, and thus $g\in\{\sigma_j\otimes\sigma_k:j,k=0,1,2,3\}$, and thus $g\in M_4(\mathbb{C}) = \operatorname{span}_{\mathbb{C}}(\{\sigma_j\otimes\sigma_k:j,k=0,1,2,3\})$.
+So $UV^\dagger\in Z(M_4(\mathbb{C})) = \mathbb{C}I_4$, therefore $U=V$ up to a global phase.
+
+\ex pass.
+
+\ex (1) The normalizer group consists of all rotations of that stablizes the vector set $\{\pm\hat{x},\pm\hat{y},\pm\hat{z}\}$.
+To implement any $U\in N(G_1)$, we first rotate $U^{-1}(\hat{z})$ to $\hat{z}$, then it is just several $90^\circ$ rotations around $\hat{z}$ away from the destination.
+\begin{itemize}
+    \item If $U^{-1}(\hat{z})=\hat{z}$, then we luckily skip the first step.
+    \item If $U^{-1}(\hat{z})=-\hat{z}$, then the $HS^2H$ gates can implement the first step.
+    \item Otherwise, $U^{-1}(\hat{z})=\hat{z}$ lies in the $XY$ plane, we can first rotate it to $\hat{x}$ with several $S$ gates, then apply $H$ gate.
+\end{itemize}
+In summary, any $U\in N(G_1)$ can be implemented by $H$ and $S$ gates.
+
+(2) \todo
+
+(3) \todo
+
+\ex pass.
+
+\ex \todo
+
+\ex pass.
+
+\ex For $g\in S$ and $E\in G_n$, since $EgE^\dagger$ is equal to either $g$ or $-g$, and $-g\notin S$ since $-I \notin S$, we deduce that $EgE^\dagger\in S$ iff $Eg=gE$, therefore $Z(S)=N(S)$.
+
+\ex \todo
+
+\ex It's easy to verify that $X_1X_2$ and $X_2X_3$ stablize $\ket{0_L}=\ket{+++}$ and $\ket{1_L}=\ket{---}$.
+
+\ex pass.
+
+\ex pass.
+
+\ex 
+
+\ex pass.
+
+\ex 
+
+\ex pass.
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 

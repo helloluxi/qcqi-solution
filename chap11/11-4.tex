@@ -1,0 +1,21 @@
+\section{Strong subadditivity}
+
+\ex Just let $B_1=B_2$.
+For the second problem, let us consider $f(x, y) = xy$, where $x$ and $y$ can be viewed as 1-dimensional matrices.
+It is linear, hence concave in either input, but
+$$\begin{aligned}
+    & f(\frac{1}{2}\times 1 + \frac{1}{2}\times (-1), \frac{1}{2}\times 1 + \frac{1}{2}\times (-1))
+    \\ = & f(0, 0) = 0 < 1 = \frac{1}{2}f(1, 1) + \frac{1}{2}f(-1, -1).
+\end{aligned}$$
+
+\ex Introduce an auxiliary system $R$ to purify $ABC$, then
+$$
+    S(R,B,C)+S(B) \le S(R,B)+S(B,C).
+$$
+
+By substituting $S(R,B,C)=S(A)$ and $S(R,B)=S(A,C)$ we obtain the desired inequality.
+
+\ex \todo
+
+\ex $S(A:B)+S(A:C)=[S(A)-S(A|B)]+[S(A)-S(A|C)]=2S(A)-[S(A|B)+S(A|C)]\le 2S(A)$.
+Consider a pure state $\rho^{AB}$ where $\rho^B=\tr_A\rho^{AB}$ is mixed, we have $S(A:B)-S(A)=S(B)-S(A,B)>0$.

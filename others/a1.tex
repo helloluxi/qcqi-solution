@@ -1,0 +1,31 @@
+\chapter{Notes on basic probability theory}
+
+\ex $p(x|y) = \frac{p(xy)}{p(y)} = \frac{p(y|x)p(x)}{p(y)}$.
+
+\ex $p(y) = \sum_x p(xy) = \sum_x p(y|x) p(x)$.
+
+\ex If not, then all $x$ which makes $p(x)>0$ satisfies that $x<\bm{E}(x)$, hence $\bm{E}(x) = \sum_x p(x) x < \sum_x p(x) \bm{E}(x) = \bm{E}(x)$, contradiction.
+
+\ex Let $a,b$ be two numbers, and $X,Y$ be two random variables, then
+
+$$\begin{aligned}
+    \bm{E}(aX+bY) = & \sum_{x\in X,y\in Y}p(xy)(ax+by)
+    \\ = & a\sum_{x\in X,y\in Y}p(xy)x + b\sum_{x\in X,y\in Y}p(xy)y
+    \\ = & a\sum_{x\in X}p(x)x + b\sum_{y\in Y}p(y)y
+    \\ = & a\bm{E}(X) + b\bm{E}(Y).
+\end{aligned}$$
+
+\ex $$\begin{aligned}
+    \bm{E}(XY) = & \sum_{x\in X,y\in Y}p(xy)xy
+    = \sum_{x\in X,y\in Y}p(x)p(y)xy
+    \\ = & \sum_{x\in X}p(x)x\sum_{y\in Y}p(y)y
+    = \bm{E}(XY).
+\end{aligned}$$
+
+\ex $$\begin{aligned}
+P(|X-\bm{E}(X)|\ge\lambda\Delta(X)) 
+= & \sum_{|x-\bm{E}(X)|\ge\lambda\Delta(X)}p(x)
+\\ \le & \sum_{|x-\bm{E}(X)|\ge\lambda\Delta(X)} \left(\frac{x-\bm{E}(X)}{\lambda\Delta(X)}\right)^2p(x)
+\\ = & \frac{1}{\lambda^2} \frac{\sum_{x}(x-\bm{E}(X))^2p(x)}{\Delta(X)^2}
+\\ = & \frac{1}{\lambda^2}.
+\end{aligned}$$

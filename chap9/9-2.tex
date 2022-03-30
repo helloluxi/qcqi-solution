@@ -1,0 +1,95 @@
+\section{How close are two quantum states?}
+
+\ex pass.
+
+\ex First use the spetral decomposition $\rho-\sigma = UDU^\dagger$, where $U$ is unitary and $D=\operatorname{diag}(d_1,d_2,\cdots,d_n)$ is diagonal.
+Then let 
+$$\begin{gathered}
+    D_+=\operatorname{diag}(\max(d_1,0),\max(d_2,0),\cdots,\max(d_n,0)), \\
+    D_-=\operatorname{diag}(\max(-d_1,0),\max(-d_2,0),\cdots,\max(-d_n,0)).
+\end{gathered}$$
+
+It is obvious that $D_\pm$ are both positive operators with support on orthogonal vector spaces and $D=D_+ - D_-$.
+Finally $Q:=UD_+U^\dagger$ and $S:=UD_-U^\dagger$ are positive operators with support on orthogonal vector and $\rho-\sigma=Q-S$.
+
+\ex By Eq.~(9.22) there exists a projector $P$ such that
+$$\begin{aligned}
+D\left(\sum_ip_i\rho_i, \sigma\right)
+& = \sum_ip\tr(P\rho_i)-\tr(P\sigma)
+\\ = & \sum_ip\tr(P(\rho_i - \sigma))
+\le \sum_ip_iD(\rho_i, \sigma).
+\end{aligned}$$
+
+\ex The state space of density matrices is the 3-dimensional unit closed ball $\mathbb{B}^3$ via $\rho = (I + \vec{r} \cdot \vec{\sigma}) / 2$, which is convex and compact in $\mathbb{R}^3$.
+Since any trace-preserving quantum operation can be viewed as a mapping from $\mathbb{B}^3$ to $\mathbb{B}^3$, it has a fixed point.
+
+\ex If $\mathcal{E}$ has two distinct fixed point $\rho_1,\rho_2$, then $D(\rho_1,\rho_2) = D(\mathcal{E}(\rho_1), \mathcal{E}(\rho_2)) < D(\rho_1,\rho_2)$ is a contradiction.
+
+\ex For any density matrices $\rho$ and $\sigma$,
+$$\begin{aligned}
+D(\mathcal{E}(\rho), \mathcal{E}(\sigma))
+= & D(p\rho_0+(1-p)\mathcal{E}'(\rho), p\rho_0+(1-p)\mathcal{E}'(\sigma))
+\\ = & (1-p)D(\mathcal{E}'(\rho), \mathcal{E}'(\sigma))
+\le (1-p)D(\rho, \sigma)
+\\ < & D(\rho, \sigma).
+\end{aligned}$$
+
+\ex Suppose $\rho=(I+\vec{r}\cdot\vec{\sigma})/2$ and $\sigma=(I+\vec{s}\cdot\vec{\sigma})/2$, then
+$$\begin{aligned}
+D(\mathcal{E}(\rho), \mathcal{E}(\sigma))
+= & D\left(\frac{I+(1-p)\vec{r}\cdot\vec{\sigma}}{2},\frac{I+(1-p)\vec{s}\cdot\vec{\sigma}}{2}\right)
+\\ = & \frac{1-p}{2}\left|\vec{r}-\vec{s}\right|
+\\ < & \frac{1}{2}\left|\vec{r}-\vec{s}\right|
+\\ = & D(\rho, \sigma).
+\end{aligned}$$
+
+\ex Suppose $\rho=(I+\vec{r}\cdot\vec{\sigma})/2$ and $\sigma=(I+\vec{s}\cdot\vec{\sigma})/2$, then
+$$\begin{aligned}
+D(\mathcal{E}(\rho), \mathcal{E}(\sigma))
+= & \frac{1}{2}\sqrt{(r_x-s_x)^2+(1-2p)^2(r_y-s_y)^2+(1-2p)^2(r_z-s_z)^2}
+\\ \le & \frac{1}{2}\sqrt{(r_x-s_x)^2+(r_y-s_y)^2+(r_z-s_z)^2}
+\\ = & D(\rho, \sigma).
+\end{aligned}$$
+
+The equality holds when $r_y-s_y=r_z-s_z=0$, so the bit flip channel is contractive but not strictly contractive.
+Since it is a scaling towards the $x$-axis, the set of fixed points is $\{(I+\vec{r}\cdot\vec{\sigma})/2:r_x=0\}$.
+
+\ex For any positive operator $A=\sum_ia_i\dyadic{\psi_i}{\psi_i}$, we have
+$$
+\sqrt{UAU^\dagger}
+= \sqrt{\sum_i}a_iU\dyadic{\psi_i}{\psi_i}U^\dagger
+= \sum_i\sqrt{a_i}U\dyadic{\psi_i}{\psi_i}U^\dagger
+= U\sqrt{A}U^\dagger.
+$$
+
+Hence
+$$\begin{aligned}
+F(U\rho U^\dagger, U\sigma U^\dagger)
+= & \tr\sqrt{\sqrt{U\rho U^\dagger}U\sigma U^\dagger\sqrt{U\rho U^\dagger}}
+\\ = & \tr\sqrt{U\sqrt{\rho}\sigma\sqrt{\rho}U^\dagger}
+\\ = & \tr\left(U\sqrt{\sqrt{\rho}\sigma\sqrt{\rho}}U^\dagger\right)
+\\ = & \tr\sqrt{\sqrt{\rho}\sigma\sqrt{\rho}}
+\\ = & F(\rho, \sigma).
+\end{aligned}$$
+
+\ex In this case $U_R$ and $U_Q$ are fixed, just choose $V_R=I$ and $V_Q=U_V^\dagger U_R^\dagger U_Q$.
+
+\ex $\tr(A^\dagger B) = \sum_{j,k}A^\dagger_{jk}B^{kj} = \todo = \sum_iA_{ii}B_{ii} = \bra{m}A\otimes B\ket{m}.$
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex Just write $\sigma=\sum_ip_i\sigma$.
+
+\ex Let $\sigma=\sum_ip_i\dyadic{\varphi_i}{\varphi_i}$, then
+$$\begin{aligned}
+1 - F(\ket{\psi}, \sigma)^2
+= & 1 - \bra{\psi}\sigma\ket{\psi}
+\\ = & \tr(\dyadic{\psi}{\psi}-\dyadic{\psi}{\psi}\sigma)
+\\ = & \tr(\dyadic{\psi}{\psi}(\dyadic{\psi}{\psi}-\sigma))
+\\ \le & \max_P\tr(P(\dyadic{\psi}{\psi}-\sigma))
+\\ = & D(\ket{\psi}, \sigma)
+\end{aligned}$$

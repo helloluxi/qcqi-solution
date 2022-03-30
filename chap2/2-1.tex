@@ -1,0 +1,221 @@
+\chapter{Introduction to quantum mechanics}
+
+\section{Linear Algebra}
+
+\ex $(1, -1) + (1, 2) - (2, 1) = 0$.
+
+\ex $A=\begin{pmatrix}0&1\\1&0\end{pmatrix}$.
+On the input and output basis $\{\ket{+},\ket{-}\}$ we have $A=\begin{pmatrix}1&0\\0&-1\end{pmatrix}$.
+
+\ex For any $\ket{v}\in V$ we have $BA\ket{v}=B\left(A\ket{v}\right)$, by the combination law of matrix products.
+
+\ex $\inner{\psi_i}{\operatorname{id}\middle|\psi_j}=\inner{\psi_i}{\psi_j}=\delta_i^j$.
+
+\ex (1) $(y,\sum_i\lambda_iz_i) = y^H(\sum_i\lambda_iz_i)=\sum_i\lambda_i(y^Hz_i)=\sum_i(y,z_i)$.
+
+(2) $(y,z)=y^Hz=(z^Hy)^H=(z^Hy)^*=(z,y)^*$.
+
+(3) $(y,y)=\sum_i(y_i^*y_i)=\sum_i|y_i|^2\ge 0$, the equality holds iff $y_i=0$, i.e., $y=0$.
+
+\ex Just combine requirements (1) and (2).
+
+\ex pass.
+
+\ex The normalization is overt, and we will prove the orthogonality by induction.
+For fixed $N$, suppose $\inner{v_j}{v_k}=0$ is true for all $j<k\le N$.
+Then $\inner{v_j}{v_k}=\delta_j^k$ for all $j\le k\le N$.
+Consider $k=N+1$ and arbitary $k<j$, we have
+$$\inner{v_j}{v_k}=\frac{\inner{v_j}{w_{N+1}}-\sum_{i=1}^k\inner{v_i}{w_{N+1}}\delta_i^j}{||\ket{w_{N+1}}-\sum_{i=1}^k\inner{v_i}{w_{N+1}}\ket{v_i}||}=0.$$
+By induction on $N$ we complete the proof.
+
+\ex $$\begin{aligned}
+    \sigma_0 & = & \dyadic{0}{0}+\dyadic{1}{1},\\
+    \sigma_1 & = & \dyadic{0}{1}+\dyadic{1}{0},\\
+    \sigma_2 & = & i\left(\dyadic{0}{1}-\dyadic{1}{0}\right),\\
+    \sigma_3 & = & \dyadic{0}{0}-\dyadic{1}{1}.
+\end{aligned}$$
+
+\ex A $\operatorname{dim}V\times\operatorname{dim}V$ matrix whose entries are all zero, but one on the $k$-th row and $j$-th column.
+
+\ex $$\begin{aligned}
+    X & = \dyadic{+}{+}-\dyadic{-}{-},\\
+    Y & = \left(\ket{0}+i\ket{1}\right)^\dagger\left(\ket{0}+i\ket{1}\right)-\left(\ket{0}-i\ket{1}\right)^\dagger\left(\ket{0}-i\ket{1}\right),\\
+    Z & = \dyadic{0}{0}-\dyadic{1}{1}.
+\end{aligned}$$
+
+\ex Since $\det\begin{pmatrix}1-\lambda&0\\0&1-\lambda\end{pmatrix}=(1-\lambda)^2=0$, the only eigenvalue of the matrix is 1.
+By solving $\begin{pmatrix}0&0\\1&0\end{pmatrix}X=0$ we know the corresponding eigenvectors are $X=\begin{pmatrix}0\\\mu^*\end{pmatrix}$ for $\mu\in\mathbb{C}$.
+If it is diagonalizable, then its diagonalization must be $\begin{pmatrix}0&\mu^*\end{pmatrix}\begin{pmatrix}0\\\mu\end{pmatrix}=\begin{pmatrix}0&0\\0&|\mu|^2\end{pmatrix}\neq\begin{pmatrix}1&1\\1&0\end{pmatrix}$, which causes a contradiction.
+
+\ex For any vector $\ket\psi$ we have $\inner{\psi}{v}\bra{w}=\left(\ket{w}\inner{v}{\psi}\right)^\dagger=\ket{\psi}^\dagger\left(\dyadic{w}{v}\right)=\bra{\psi}\left(\dyadic{w}{v}\right)^\dagger$, hence $\dyadic{v}{w}=\left(\dyadic{w}{v}\right)^\dagger$.
+
+\ex For any vector $\ket\psi$ we have $\bra{\psi}\left(\sum_ia_iA_i\right)^\dagger=\left(\sum_ia_iA_i\ket{\psi}\right)^\dagger=\sum_ia_i^*\left(\bra{\psi}A_i^\dagger\right)=\bra{\psi}\left(\sum_ia_i^*A_i^\dagger\right)$, hence $\left(\sum_ia_iA_i\right)^\dagger=\sum_ia_i^*A_i^\dagger$.
+
+\ex For any vector $\ket\psi$ we have $(A^\dagger)^\dagger\ket{\psi}=\bra{\psi}A^\dagger=A\ket{\psi}$, hence $(A^\dagger)^\dagger=A$.
+
+\ex $P^2=\sum_{i,j}\ket{i}\inner{i}{j}\bra{j}=\sum_{i,j}\delta_i^j\dyadic{i}{j}\sum_i\dyadic{i}{i}=P$.
+
+\ex \textbf{if:} $A$ is normal(diagonalizable) and has real eigenvalues.
+
+$\Rightarrow$ $A=\sum_i\lambda_i\dyadic{\psi_i}{\psi_i}$ with $\lambda_i\in\mathbb{R}$.
+
+$\Rightarrow$ $A=A^\dagger$ by direct verification.
+
+\textbf{only if:} $A=A^\dagger$.
+
+$\Rightarrow$ $\lambda\ket\psi=A\ket\psi=\left(\bra\psi A\right)^\dagger=\left(\lambda\bra\psi\right)^\dagger=\lambda^*\ket\psi$ for any eigenvector $\ket\psi$ with eigenvalue $\lambda$.
+
+$\Rightarrow$ $\lambda=\lambda^*$.
+
+$\Rightarrow$ $\lambda$ is real.
+
+\ex $U\ket\psi=\lambda\ket\psi$.
+
+$\Rightarrow$ $1=\inner{\psi}{\operatorname{id}\middle|\psi}=\inner{\psi}{U^\dagger U\psi}=\left(U\ket\psi\right)^\dagger\left(U\ket\psi\right)=\lambda^*\lambda\inner{\psi}{\psi}=\lambda^*\lambda$.
+
+$\Rightarrow$ $|\lambda|=1$.
+
+\ex pass.
+
+\ex Let $(U_{ij})=\inner{w_i}{v_j}$, then $A'=U^\dagger A''U$.
+
+\ex The converse is obvious, we will merely prove the forward implication by induction on the dimension $d$ of $V$.
+The case $d=1$ is trivial.
+Let $\lambda$ be an eigenvalue of $M$, $P$ be the projector onto the $\lambda$-eigenspace $V_\lambda$, and $Q$ be the projector onto its orthogonal complement $V_\lambda^\perp$.
+Then $M=(P+Q)M(P+Q)=PMP+QMP+PMQ+QMQ$.
+Obviously $PMP=\lambda P$ and $QMP=PMQ=0$ since $MP\ket\psi\in V_\lambda$ and $MQ\ket\psi\in V_\lambda^\perp$ for any state $\ket\psi$.
+Next, $QMQ$ is Hermitian since $(QMQ)^\dagger=Q^\dagger M^\dagger Q^\dagger=QMQ$, hence diagonal w.r.t. some orthonormal basis for the subspace $V_\lambda^\perp$.
+Plus, $P$ is identity w.r.t. any orthonormal basis of $V_\lambda$.
+It follows that $M=\lambda P+QMQ$ is diagonal w.r.t. the union of the two basis above.
+
+\ex Suppose $M\ket\psi=\lambda\ket\psi$ and $M\ket\varphi=\mu\ket\varphi$ s.t. $\lambda\neq\mu\in\mathbb{R}$, then $\lambda\inner{\psi}{\varphi}=\bra{\psi}\left(\lambda\ket\varphi\right)=\inner{\psi}{M\middle|\varphi}=\left(\bra{\psi}\mu\right)\ket\varphi=\mu\inner{\psi}{\varphi}$. Since $\lambda\neq\mu$ we have $\inner{\psi}{\varphi}=0$.
+
+\ex $P=\sum_i\dyadic{i}{i}$, hence all its non-zero eigenvalues must be 1.
+
+\ex Let $B=(A+A^\dagger)/2$ and $C=(A-A^\dagger)/2i$, then $B$ and $C$ are both Hermitian.
+For any state $\ket{v}$, we have $\inner{v}{B\middle|v}=\inner{v}{B^\dagger\middle|v}=\left(\inner{v}{B\middle|v}\right)^*$, hence $\inner{v}{B\middle|v}\in\mathbb{R}$.
+So is $\inner{v}{C\middle|v}$.
+Since $A=B+iC$ we have $\inner{v}{A\middle|v}=\inner{v}{B\middle|v}+i\inner{v}{C\middle|v}\in\mathbb{R}$.
+So $\inner{v}{C\middle|v}=0$.
+The arbitariness of $\ket{v}$ yields $C=0$, so $A=B$ is Hermitian.
+
+\ex $\forall v, \inner{v}{A^\dagger A\middle|v}=\left(A\ket{v}\right)^\dagger\left(A\ket{v}\right)\ge 0$.
+
+\ex $\ket{\psi}^{\otimes 2}=(\ket{00}+\ket{01}+\ket{10}+\ket{11})/2$.
+
+$\ket{\psi}^{\otimes 3}=(\ket{000}+\ket{001}+\ket{010}+\ket{011}+\ket{100}+\ket{101}+\ket{110}+\ket{111})/2\sqrt{2}$.
+
+\ex (a) $X\otimes Z=\begin{pmatrix}&&1&\\&&&-1\\1&&&\\&-1&&\end{pmatrix}.$
+
+(b) $I\otimes X=\begin{pmatrix}&1&&\\1&&&\\&&&1\\&&1&\end{pmatrix}.$
+
+(c) $X\otimes I=\begin{pmatrix}&&1&\\&&&1\\1&&&\\&1&&\end{pmatrix}$, non-commutative.
+
+\ex pass.
+
+\ex Let $U,V$ be unitary, then $(U\otimes V)^\dagger(U\otimes V)=(U^\dagger\otimes V^\dagger)(U\otimes V)=(U^\dagger U)\otimes(V^\dagger V)=I$, so $U\otimes V$ is Hermitian.
+
+\ex Let $A,B$ be Hermitian, then $(A\otimes B)^\dagger=(A^\dagger\otimes B^\dagger)=A\otimes B$, so $A\otimes B$ is Hermitian.
+
+\ex Let $A,B$ be positive, then $A=\sum_ia_i\dyadic{v_i}{v_i}$ and $B=\sum_jb_j\dyadic{w_j}{w_j}$ with $a_i,b_j>0$.
+So $A\otimes B=\sum_{i,j}a_ib_j\dyadic{v_iw_j}{v_iw_j}$ with $a_ib_j>0$, hence is positive.
+
+\ex Use the same notation above, and substitute $a_i$ and $b_j$ with 1.
+
+\ex In the expansion of $H^{\otimes n}$, a minus sign occurs only if both $x$ and $y$ give 1 at a certain bit.
+Hence the amount of minus signs is $x\cdot y$, which yields the coefficient $(-1)^{x\cdot y}$.
+$$\begin{aligned}H^{\otimes 2}=\frac{1}{2}[
+    &(\ket{00}+\ket{01}+\ket{10}+\ket{11})\bra{00}
+    \\+&(\ket{00}-\ket{01}+\ket{10}-\ket{11})\bra{01}
+    \\+&(\ket{00}+\ket{01}-\ket{10}-\ket{11})\bra{10}
+    \\+&(\ket{00}-\ket{01}-\ket{10}+\ket{11})\bra{11}].\end{aligned}$$
+
+\ex Since 
+$$\begin{aligned}
+    \begin{pmatrix}4&3\\3&4\end{pmatrix} = & 4I+3X 
+    \\ = & 4(\dyadic{+}{+}+\dyadic{-}{-})+3(\dyadic{+}{+}-\dyadic{-}{-}) 
+    \\ = & 7\dyadic{+}{+}+\dyadic{-}{-},
+\end{aligned}$$
+we have
+$$\operatorname{sqrt}\begin{pmatrix}
+    4&3\\3&4
+\end{pmatrix}=\sqrt{7}\dyadic{+}{+}+\dyadic{-}{-}=\begin{pmatrix}
+    \frac{\sqrt{7}+1}{2}&\frac{\sqrt{7}-1}{2}\\\frac{\sqrt{7}-1}{2}&\frac{\sqrt{7}+1}{2}
+\end{pmatrix},$$
+and
+$$\operatorname{log}\begin{pmatrix}
+    4&3\\3&4
+\end{pmatrix}=\log{7}\dyadic{+}{+}=\frac{\log 7}{2}\begin{pmatrix}
+    1&1\\1&1
+\end{pmatrix}.$$
+
+\ex First we show that
+$$\begin{aligned}
+    & (\vec{v}\cdot\vec{\sigma})^2
+    \\ = & v_1^2\sigma_1^2+v_2^2\sigma_2^2+v_3^2\sigma_3^2+v_1v_2\{\sigma_1,\sigma_2\}+v_1v_3\{\sigma_1,\sigma_3\}+v_2v_3\{\sigma_2,\sigma_3\}
+    \\ = & (v_1^2+v_2^2+v_3^2)I+0+0+0=I.
+\end{aligned}$$
+Hence
+$$(\vec{v}\cdot\vec{\sigma})^k=\begin{cases}I&,k\text{ even}\\\vec{v}\cdot\vec{\sigma}&,k\text{ odd}\end{cases}.$$
+We have
+$$\begin{aligned}
+    \exp(i\theta\vec{v}\cdot\vec{\sigma}) = & \sum_n\frac{1}{n!}(i\theta\vec{v}\cdot\vec{\sigma})^n
+    \\ = & \sum_{n\text{ even}}\frac{1}{n!}(i\theta)^nI+\sum_{n\text{ odd}}\frac{1}{n!}(i\theta)^n(\vec{v}\cdot\vec{\sigma})
+    \\ = & \cosh(i\theta)I+\sinh(i\theta)(\vec{v}\cdot\vec{\sigma})
+    \\ = & \cos(\theta)I+i\sin(\theta)(\vec{v}\cdot\vec{\sigma}).
+\end{aligned}$$
+
+\ex pass.
+
+\ex Let $A\in\mathbb{C}^{m\times n}$ and $B\in\mathbb{C}^{n\times m}$, then
+$$\tr(AB)=\sum_{i=1}^m(AB)_{ii}=\sum_{i=1}^m\sum_{j=1}^nA_{ij}B_{ji}=\sum_{j=1}^nBA_{jj}=\tr(BA).$$
+
+\ex pass.
+
+\ex (1) (a)$(A, \sum_i\lambda_iB_i)=\tr(A^\dagger\sum_i\lambda_iB_i)=\tr(\sum_i\lambda_iA^\dagger B_i)=\sum_i\lambda_i\tr(A^\dagger B_i)=\sum_i\lambda_i(A, B_i)$.
+(b) $(A,B)=\tr(A^\dagger B)=\tr((B^\dagger A)^\dagger)=\tr(B^\dagger A)^*=(B,A)^*$.
+(c) $(A,A)=\tr(A^\dagger A)=\sum_{i,j}|A_{ij}|^2\ge 0$, equality holds iff all $A_{ij}=0$, i.e., $A=0$.
+
+(2) On a basis of $V$, operators in $L_V$ are one-to-one corresponding to $d\times d$ matrices, which has dimension $d^2$.
+
+(3)$\{E_{ij}\}_{i,j=1}^n$, where $(E_{ij})_{kl}=\delta_i^k\delta_j^l$.
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex Just combine Ex.2.41 and Ex.2.42.
+
+\ex $B=A^{-1}AB=A^{-1}\frac{[A,B]+\{A,B\}}{2}=0$.
+
+\ex $[A,B]^\dagger=(AB-BA)^\dagger=B^\dagger A^\dagger-A^\dagger B^\dagger=[B^\dagger, A^\dagger]$.
+
+\ex pass.
+
+\ex $(i[A,B])^\dagger=-i[A,B]^\dagger=-i[B^\dagger,A^\dagger]=-i[B,A]=i[A,B]$.
+
+\ex $P=PI$. $U=IU$. Let $H=\sum_i\lambda_i\dyadic{\psi_i}{\psi_i}$ with $\lambda_i\in\mathbb{R}-\{0\}$.
+Then $A=\sum_i|\lambda_i|\dyadic{\psi_i}{\psi_i}$ is positive, $B=\sum_i\operatorname{sign}(\lambda_i)\dyadic{\psi_i}{\psi_i}$ is unitary, and $H=AB=BA$.
+
+\ex Let $A = \sum_i\lambda_i\dyadic{i}{i}$ be any normal matrix, then $A=UJ$ where
+$$J = \sum_i|\lambda_i|\dyadic{i}{i},$$
+is positive and
+$$J = \sum_i\frac{\lambda_i}{|\lambda_i|}\dyadic{i}{i},$$
+is unitary.
+
+\ex Let $A = \begin{pmatrix}
+    1 & \\
+    1 & 1
+\end{pmatrix}$, then $A^\dagger A = \begin{pmatrix}
+    2 & 1 \\
+    1 & 1
+\end{pmatrix}$.
+The eigenvalues of $A^\dagger A$ are $\lambda_\pm = \frac{3+\sqrt{5}}{2}$, and the corresponding eigenvectors are $\ket{\lambda_\pm} = \frac{1}{\sqrt{10 \mp 2\sqrt{5}}}\begin{pmatrix}
+    2 \\ -1 \pm \sqrt{5}
+\end{pmatrix}$.
+Thus,
+$$J=\sqrt{A^\dagger A}=\sqrt{\lambda_+}\dyadic{\lambda_+}{\lambda_+}+\sqrt{\lambda_-}\dyadic{\lambda_-}{\lambda_-}=\todo,$$
+and
+$$U=AJ^{-1}=\todo$$

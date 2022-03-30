@@ -1,0 +1,53 @@
+\chapter{The Solovay-Kitaev theorem}
+
+\ex Since both $U$ and $V$ have the form $a+i\vec{b}\cdot\vec{\sigma}$ where $a\in\mathbb{R},\vec{b}\in\mathbb{R}^3$, so does $U-V$.
+By direct calculation we find the eigenvalues of $U-V$ is $\lambda_\pm=a\pm ib$ where $b=|\vec{b}|$.
+Observing that $|\lambda_+|=|\lambda_-|$, we have
+$$D(U,V)=|\lambda_+|+|\lambda_-|=2\max(|\lambda_+|+|\lambda_-|)=E(U,V).$$
+
+\ex $$\begin{aligned}
+    LHS = & \tr\left|e^{-iA}e^{-iB}e^{iA}e^{iB}-e^{-AB+BA}\right|
+    \\ = & \tr|o(A^2)+o(B^2)+o(-AB+BA)|
+    \\ = & O(\varepsilon^3)
+\end{aligned}$$
+
+\ex First we calculate
+
+$$u(\vec{x})-u(\vec{y}) = \left[\cos\left(\frac{x}{2}\right)-\cos\left(\frac{y}{2}\right)\right]I-i\left[\hat{x}\sin\left(\frac{x}{2}\right)-\hat{y}\sin\left(\frac{y}{2}\right)\right]\cdot\vec{\sigma}.$$
+
+It eigenvalues are
+
+$$\lambda_\pm = \left[\cos\left(\frac{x}{2}\right)-\cos\left(\frac{y}{2}\right)\right] \pm i\left|-\hat{x}\sin\left(\frac{x}{2}\right)+\hat{y}\sin\left(\frac{y}{2}\right)\right|$$
+
+By cosine law we have
+
+$$
+\left|-\hat{x}\sin\left(\frac{x}{2}\right)+\hat{y}\sin\left(\frac{y}{2}\right)\right|^2 = \sin^2\left(\frac{x}{2}\right)+\sin^2\left(\frac{y}{2}\right) - 2\sin\left(\frac{x}{2}\right)\sin\left(\frac{y}{2}\right)\hat{x}\cdot\hat{y}
+$$
+
+Hence
+
+$$\begin{aligned}
+    D(u(\vec{x}),u(\vec{y})) = & |\lambda_+|+|\lambda_-|
+    \\ = & 2\sqrt{\left[\cos\left(\frac{x}{2}\right)-\cos\left(\frac{y}{2}\right)\right]^2 + \left|-\hat{x}\sin\left(\frac{x}{2}\right)+\hat{y}\sin\left(\frac{y}{2}\right)\right|^2}
+    \\ = & 2\sqrt{2-2\cos\left(\frac{x}{2}\right)\cos\left(\frac{y}{2}\right) - 2\sin\left(\frac{x}{2}\right)\sin\left(\frac{y}{2}\right)\hat{x}\cdot\hat{y}}
+    \\ = & 2\sqrt{2}\sqrt{1-\cos\left(\frac{x}{2}\right)\cos\left(\frac{y}{2}\right) - \sin\left(\frac{x}{2}\right)\sin\left(\frac{y}{2}\right)\hat{x}\cdot\hat{y}}
+\end{aligned}$$ 
+
+\ex pass.
+
+\ex $$\begin{aligned}
+    D(u(\vec{x}),u(\vec{y}))^2 = & 8\left[1-(1-\frac{x^2}{8}+O(x^4))(1-\frac{y^2}{8}+O(y^4))\right.
+    \\ & \left. - (\frac{x}{2}+O(x^3))(\frac{y}{2}+O(y^3))\hat{x}\cdot\hat{y}\right]
+    \\ = & 8\left[\frac{x^2+y^2}{8}+O(\varepsilon^4)-(\frac{x\hat{x}\cdot y\hat{y}}{4}+O(\varepsilon^4))\right]
+    \\ = & x^2+y^2-2\vec{x}\cdot\vec{y}+O(\varepsilon^4)
+    \\ = & ||\vec{x}-\vec{y}||^2[1+O(\varepsilon^2)].
+\end{aligned}$$
+
+Hence
+
+$$D(u(\vec{x}),u(\vec{y}))=||\vec{x}-\vec{y}||[1+O(\varepsilon^2)]=||\vec{x}-\vec{y}||+O(\varepsilon^3).$$
+
+\ex \todo
+
+\prob \todo

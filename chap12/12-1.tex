@@ -1,0 +1,22 @@
+\chapter{Quantum information theory}
+
+\section{Distinguishing quantum states and the accessible information}
+
+\ex Let $U$ be a unitary operator sending $\ket{0}$ and $\ket{1}$ to $\ket{\psi}$ and $\ket{\varphi}$, resp.
+Then the quantum circuit to copy $\ket{\psi}$ or $\ket{\varphi}$ is
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \gate{U^\dagger} & \ctrl{1} & \gate{U} & \qw \\
+    & \qw & \targ & \gate{U} & \qw 
+}$$
+
+\ex It is trace-preserving since
+$$
+\sum_y(\sqrt{E_y}\otimes U_y)^\dagger (\sqrt{E_y}\otimes U_y) = \sum_yE_y\otimes U_y^\dagger U_y = \sum_yE_y\otimes I = I.
+$$
+
+The agreement is obvious.
+
+\ex $H(X:Y) \le S(\rho)-\sum_xp_xS(\rho_X) \le S(\rho) \le S(\frac{1}{2^n}I) = n.$
+
+\ex Here the Holevo $\chi$ quantity is exactly 1 bit. \todo

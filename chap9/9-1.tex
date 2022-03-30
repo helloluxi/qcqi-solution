@@ -1,0 +1,25 @@
+\chapter{Distance measures for quantum information}
+
+\section{Distance measures for classical information}
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex Let $S_+ =\{x:p_x>q_x\}$ and $S_- =\{x:p_x<q_x\}$.
+Then,
+$$\sum_{x\in S_+}(p_x-q_x)-\sum_{x\in S_-}(q_x-p_x)=\sum_x(p_x-q_x)=\sum_xp_x-\sum_xq_x=0,$$
+i.e., $\sum_{x\in S_+}(p_x-q_x)=\sum_{x\in S_-}(q_x-p_x)$.
+
+One one hand, we have
+$$D(p_x,q_x) = \frac{1}{2}\sum_x|p_x-q_x| = \frac{1}{2}\left(\sum_{x\in S_+}(p_x-q_x)+\sum_{x\in S_-}(q_x-p_x)\right) = \sum_{x\in S_+}(p_x-q_x).$$
+
+On the other hand, it is obvious that
+$$\max_S\left|\sum_{x\in S}(p_x-q_x)\right| = \max\left(\sum_{x\in S_+}(p_x-q_x), \sum_{x\in S_-}(q_x-p_x)\right) = \sum_{x\in S_+}(p_x-q_x).$$
+
+Hence the desired equality is obtained.
+
+\ex Similar to the previous exercise, we have
+$$\max_S\left|\sum_{x\in S}(p_x-q_x)\right| = \sum_{x\in S_+}(p_x-q_x) = D(p_x, q_x).$$

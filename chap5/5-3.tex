@@ -1,0 +1,47 @@
+\section{Applications: order-finding and factoring}
+
+\ex pass.
+
+\ex If $r>N$, then $x^m\neq x^n(\operatorname{mod }N)$ for any pair $1\le m\neq n\le N$, otherwise $x^{|m-n|}=1(\operatorname{mod }N)$ and $|m-n|<r$ causes a contradiction. Hence the set $\{x^m\operatorname{ mod }N:0\le m\le N\}$ is a subset of $\{0,1,2,\cdots,N-1\}$ and has $N+1$ distinct elements, which again causes a contradiction.
+
+\ex For $0\le y,y'\le N-1$, we have
+$$\inner{y'}{U^\dagger U\middle|y} = \inner{xy'(\operatorname{mod }N)}{xy(\operatorname{mod }N)} = \delta_{xy(\operatorname{mod }N)}^{xy'(\operatorname{mod }N)} = \delta_{x^{-1}xy(\operatorname{mod }N)}^{x^{-1}xy'(\operatorname{mod }N)} = \delta_y^{y'}$$
+i.e., $U^\dagger U=I$.
+
+\ex (5.44) 
+$$\begin{aligned}
+    \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\ket{u_s}
+    = & \frac{1}{r}\sum_{s=0}^{r-1}\sum_{l=0}^{r-1}\exp(-2\pi isl/r)\ket{x^l\operatorname{ mod }N}
+    \\ = & \sum_{l=0}^{r-1}\delta_l^0\ket{x^l\operatorname{ mod }N}
+    \\ = & \ket{1}
+\end{aligned}$$
+
+(5.45) 
+$$\begin{aligned}
+    \frac{1}{\sqrt{r}}\sum_{s=0}^{r-1}\exp(2\pi isk/r)\ket{u_s}
+    = & \frac{1}{r}\sum_{s=0}^{r-1}\sum_{l=0}^{r-1}\exp(-2\pi is(l-k)/r)\ket{x^l\operatorname{ mod }N}
+    \\ = & \sum_{l=0}^{r-1}\delta_{l-k}^0\ket{x^l\operatorname{ mod }N}
+    \\ = & \ket{x^k\operatorname{ mod }N}
+\end{aligned}$$
+
+\ex The equivalence is obvious. Since the addition gate is $O(L)$ and the exponential module gate is $O(L^3)$, the whole $V$ is $O(L^3)$.
+
+\ex Let $x=\prod_ip_i^{a_i}$ and $y=\prod_ip_i^{b_i}$, where $p_i$ is the $i$-th prime number, then $\gcd(x,y)=\prod_ip_i^{\min(a_i,b_i)}$ and $\operatorname{lcm}(x,y)=\prod_ip_i^{\max(a_i,b_i)}$. By $\min(a,b)+\max(a,b)=a+b$ we deduce that $\gcd(x,y)\operatorname{lcm}(x,y)=xy$.
+
+Since each of $n$-bit integer multiplication, division[\url{https://en.wikipedia.org/wiki/Computational_complexity_of_mathematical_operations}] and binary gcd[\url{https://en.wikipedia.org/wiki/Binary_GCD_algorithm}] takes $O(n^2)$ operations, the total algorithm takes $O(n^2)$ operations.
+
+\ex (1) When $x\ge 2$ we have $$\int_x^{x+1}\frac{dy}{y^2}=\frac{1}{x}-\frac{1}{x+1}=\frac{1}{x^2+x}\ge\frac{2}{3x^2}$$
+
+(2) $$\sum_q\frac{1}{q^2}=\frac{3}{2}\sum_q\int_q^{q+1}\frac{dy}{y^2}<\frac{3}{2}\int_2^\infty\frac{dy}{y^2}=\frac{3}{4}$$
+
+\ex (1) $a=1\Rightarrow N=b=L=1$;$a\ge2\Rightarrow a^L\ge2^L>N=a^b$.
+
+(2) \todo 
+
+(3) \todo
+
+(4) \todo
+
+\ex $r=6$.
+
+\ex pass.

@@ -1,0 +1,20 @@
+\chapter{Quantum computers: physical realization}
+
+\section{Guiding principles}
+
+\section{Conditions for qunatum computation}
+
+\section{Harmonic oscillator quantum computer}
+
+\ex $a^\dagger a = \frac{m^2\omega^2x^2-im\omega[p,x]+p^2}{2m\hbar\omega}=\frac{2mH-m\hbar\omega}{2m\hbar\omega} = \frac{H}{\hbar\omega}-\frac{1}{2}$.
+
+\ex $[a,a^\dagger] = aa^\dagger-a^\dagger a = \frac{m^2\omega^2x^2-im\omega[x,p]+p^2}{2m\hbar\omega} - \frac{m^2\omega^2x^2-im\omega[p,x]+p^2}{2m\hbar\omega} = \frac{2im\omega[p,x]}{2m\hbar\omega} = 1$.
+
+\ex $$[H,a] = \hbar\omega(a^\dagger aa-aa^\dagger a) = \hbar\omega[a^\dagger,a]a = -\hbar\omega a$$
+$$Ha^n\ket\psi = (Ha)a^{n-1}\ket\psi = (aH + [H,a])a^{n-1}\ket\psi = aHa^{n-1}\ket\psi - \hbar\omega a^n\ket\psi$$
+By induction on the position of $H$ we have
+$$Ha^n\ket\psi = a^nH\ket\psi - n\hbar\omega a^n\ket\psi = (E-n\hbar\omega)a^n\ket\psi.$$
+
+\ex $(a^\dagger)^n \ket{0} = (a^\dagger)^{n-1} \sqrt{1}\ket{1} = (a^\dagger)^{n-2} \sqrt{2\cdot 1}\ket{2} = \cdots = \sqrt{n!}\ket{n}$.
+
+\ex pass.

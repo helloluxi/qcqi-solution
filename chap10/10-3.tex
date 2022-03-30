@@ -1,0 +1,29 @@
+\section{Theory of quantum error-correction}
+
+\ex It can be directly verified that $PE_i^\dagger E_jP = \alpha_{ij}P$ where $\alpha=\operatorname{diag}((1-p)^3, p(1-p)^2, p(1-p)^2, p(1-p)^2)$ is Hermitian.
+
+\ex Analogous to Ex. 10.7.
+
+\ex Since $P_i = (I + Z_i) / 2$ and $Q_i = (I - Z_i) / 2$, we deduced that the error set $\{I, P_1, Q_1, P_2, Q_2, P_3, Q_3\}$ can be linearly represented by $\{I, Z_1, Z_2, Z_3\}$, which is already proved to protect three qubit phase flip code, and conclude that it can also protect three qubit phase flip code.
+
+\ex Denote all operators as $\{E_i\}_{i=0}^{27}$, it can be directly verified that $PE_i^\dagger E_jP = \delta_{ij}P$ where $\delta$ is identity and hence Hermitian.
+
+\ex By Eq.~(8.101) we know $\{I, X, Y, Z\}$ is such an error set.
+By Ex. 10.10 such a noise model can be corrected by Shor code.
+
+\ex By Eq.~(8.101) we have
+$$
+F(\ket{\psi}, \mathcal{E}(\dyadic{\psi}{\psi})) = \sqrt{\inner{\psi}{\left[(1-\frac{4p}{3})\dyadic{\psi}{\psi}+\frac{2p}{3}I\right]\middle|\psi}} = \sqrt{1-\frac{2p}{3}},
+$$
+for any pure state $\ket{\psi}$.
+By the concavity of fidelity we know the result above is minimum.
+
+\ex Let $\ket{\psi} = a\ket{0} + b\ket{1}$, then
+$$\begin{aligned}
+F(\ket{\psi}, \mathcal{E}(\dyadic{\psi}{\psi}))^2
+= & F(\ket{\psi}, \mathcal{E})
+\\ = & \left|\inner{\psi}{E_0\middle|\psi}\right|^2 + \left|\inner{\psi}{E_1\middle|\psi}\right|^2
+\\ = & \left[|a|^2+(1-\gamma)|b|^2\right]^2+\gamma|a|^2|b|^2
+\\ = & 1 - \gamma|b|^2 + \gamma(\gamma - 1)|b|^4
+\\ \ge & 1 - \gamma
+\end{aligned}$$

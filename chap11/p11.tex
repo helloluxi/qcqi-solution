@@ -1,0 +1,43 @@
+\section*{Chapter Problems}
+\addcontentsline{toc}{section}{Chapter Problems}
+
+\prob \todo
+
+\prob (1) pass.
+
+(2) The joint convaxity says
+$$
+S\left(\frac{r_1+r_2}{2}\middle|\middle|\frac{s_1+s_2}{2}\right) \le \frac{1}{2}S(r_1||s_1) + \frac{1}{2}S(r_2||s_2).
+$$
+
+The result in (1) says
+$$
+S\left(\frac{r_1+r_2}{2}\middle|\middle|\frac{s_1+s_2}{2}\right) = \frac{1}{2}S(r_1+r_2||s_1+s_2) + \frac{1}{2}\tr(r_1+r_2).
+$$
+
+Combining them and using $r_1+r_2$ is positive, we can deduce the desired inequality.
+
+(3) \todo
+
+(4) \todo
+
+\prob (1) $H(X,Y|Z)-H(X|Z)=H(X,Y,Z)-H(X,Z)=H(Y|X,Z)\ge 0$.
+
+(2) $S(B|A,C)$ is not neccessarily non-negative.
+
+(3) Add $2S(C)$ for both sides, then it is equivalent to strong additivity.
+
+\prob (1) Add $2S(D)$ for both sides, then it is equivalent to strong additivity.
+
+(2) The inequality is equivalent to
+$$\begin{aligned}
+&H(A,B,C,D)-H(A,B,C)-H(A,B,D)-H(B,C,D)
+\\+&H(A,B)+H(B,C)+H(B,D)-H(B) \le 0.
+\end{aligned}$$
+
+Consider the case where $A,B,C$ and $D$ are balanced 0-1 distribution, with constraint $A+B+C=0(\text{mod }2)$ and $A=D$, then the quantity above is
+$$
+2-2-2-2+2+2+2-1=1>0.
+$$
+
+\prob \todo

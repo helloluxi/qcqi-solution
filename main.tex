@@ -1,0 +1,106 @@
+\documentclass{report}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{color}
+\usepackage[scale=0.75]{geometry}
+\usepackage{graphicx}
+\usepackage{indentfirst}
+\usepackage{circuitikz}
+\usepackage{qcircuit}
+\usepackage[colorlinks=true, linkcolor=blue, urlcolor=red]{hyperref}
+
+\newcounter{Exercise}[chapter]
+\newcommand{\ex}{\par\hspace*{\fill} \par\refstepcounter{Exercise}\textbf{Ex. \thechapter.\arabic{Exercise}}  }
+\newcounter{Problem}[chapter]
+\newcommand{\prob}{\par\hspace*{\fill} \par\par\refstepcounter{Problem}\textbf{Prob. \thechapter.\arabic{Problem}}  }
+
+\newcommand{\bra}[1]{\left\langle#1\right|}
+\newcommand{\ket}[1]{\left|#1\right\rangle}
+\newcommand{\inner}[2]{\left\langle#1\middle|#2\right\rangle}
+\newcommand{\dyadic}[2]{\left|#1\right\rangle\left\langle#2\right|}
+\newcommand{\D}{\operatorname{d}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\redstar}{{\color{red}*}}
+\newcommand{\todo}{{\color{red}{todo.}}}
+\newcommand{\urlref}[1]{\redstar Reference:[\url{#1}]}
+
+\title{Solution to QCQI by Nielsen and Chuang}
+\author{Xi Lu}
+
+\begin{document}
+    \fontsize{14pt}{\baselineskip}\selectfont
+    \maketitle
+    \tableofcontents
+
+    \input{chap1/1.tex}
+
+    \input{chap2/2-1.tex}
+    \input{chap2/2-2.tex}
+    \input{chap2/2-3.tex}
+    \input{chap2/2-4.tex}
+    \input{chap2/2-5.tex}
+    \input{chap2/p2.tex}
+
+    \input{chap3/3-1.tex}
+    \input{chap3/3-2.tex}
+    \input{chap3/p3.tex}
+
+    \input{chap4/4-2.tex}
+    \input{chap4/4-3.tex}
+    \input{chap4/4-4.tex}
+    \input{chap4/4-5.tex}
+    \input{chap4/4-7.tex}
+    \input{chap4/p4.tex}
+
+    \input{chap5/5-1.tex}
+    \input{chap5/5-2.tex}
+    \input{chap5/5-3.tex}
+    \input{chap5/5-4.tex}
+    \input{chap5/p5.tex}
+
+    \input{chap6/6-1.tex}
+    \input{chap6/6-2.tex}
+    \input{chap6/6-3.tex}
+    \input{chap6/6-6.tex}
+    \input{chap6/6-7.tex}
+    \input{chap6/p6.tex}
+
+    \input{chap7/7-3.tex}
+    \input{chap7/7-4.tex}
+
+    \input{chap8/8-2.tex}
+    \input{chap8/8-3.tex}
+    \input{chap8/8-4.tex}
+    \input{chap8/p8.tex}
+
+    \input{chap9/9-1.tex}
+    \input{chap9/9-2.tex}
+    \input{chap9/9-3.tex}
+    \input{chap9/p9.tex}
+
+    \input{chap10/10-1.tex}
+    \input{chap10/10-2.tex}
+    \input{chap10/10-3.tex}
+    \input{chap10/10-4.tex}
+    \input{chap10/10-5.tex}
+    \input{chap10/10-6.tex}
+    \input{chap10/p10.tex}
+
+    \input{chap11/11-2.tex}
+    \input{chap11/11-3.tex}
+    \input{chap11/11-4.tex}
+    \input{chap11/p11.tex}
+
+    \input{chap12/12-1.tex}
+
+    \appendix
+    \renewcommand{\thechapter}{A\arabic{chapter}}
+
+    \input{others/a1.tex}
+    \input{others/a2.tex}
+    \input{others/a3.tex}
+    \input{others/a4.tex}
+    \input{others/a5.tex}
+    \input{others/a6.tex}
+\end{document}

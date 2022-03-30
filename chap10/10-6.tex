@@ -1,0 +1,41 @@
+\section{Fault-tolerant quantum computation}
+
+\ex pass.
+
+\ex Since $\ket{0_L}$ and $\ket{1_L}$ are stablized by $\bar{Z}$ and $-\bar{Z}$ respectively, $U\ket{0_L}$ and $U\ket{1_L}$ are stablized by $U\bar{Z}U^\dagger=\bar{X}$ and $U(-\bar{Z})U^\dagger=-\bar{X}$, thus $U\ket{0_L}=(\ket{0_L}+\ket{1_L})/\sqrt{2}$ and $U\ket{1_L}=(\ket{0_L}-\ket{1_L})/\sqrt{2}$, up to a global phase.
+
+\ex Let $U=\operatorname{diag}(I, X)$ be the unitary matrix of CNOT gate, then $UZ_8U^\dagger = Z_1Z_8$.
+In another way, choose basis $\ket{\pm}$, then the roles of control qubit and target qubit interchange, and the $Z$ error acts as an $X$ error.
+
+\ex pass.
+
+\ex pass.
+
+\ex (a) Write the CNOT gate as $U$, then it's obvious that
+$$\Qcircuit @C=1em @R=.7em {
+    & \gate{X} & \ctrl{1} & \qw \\
+    & \qw & \gate{U} & \qw 
+} = \Qcircuit @C=1em @R=.7em {
+    & \ctrl{1} & \gate{X} & \qw \\
+    & \gate{U} & \gate{U} & \qw 
+}.$$
+
+(2) Since $ZXZ=-X$, if we move the $Z$ gate to the right of the Toffoli gate, a factor $-1$ should be multiplied if the first two qubits are $\ket{11}$, which is equivalent to the Controlled-$Z$ gate.
+
+\ex (1) By Ex. 10.65.
+
+(2) pass.
+
+(3) 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 
+
+\ex 

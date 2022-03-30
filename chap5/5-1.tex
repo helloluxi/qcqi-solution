@@ -1,0 +1,20 @@
+\chapter{The quantum Fourier transform and its application}
+
+\section{The quantum Fourier transform}
+
+\ex $ \ket{j} \overset{U}{\rightarrow} \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}e^{2\pi ijk/N}\ket{k} \overset{U^\dagger}{\rightarrow} \frac{1}{N}\sum_{k=0}^{N-1}e^{2\pi ijk/N}\sum_{l=0}^{N-1}e^{-2\pi ikl/N}\ket{l}=\frac{1}{N}\sum_{k=0}^{N-1}\sum_{l=0}^{N-1}e^{2\pi ik(j-l)/N}=\frac{1}{N}\sum_{l=0}^{N-1}N\delta_j^l\ket{l} = \ket{j} $
+
+\ex $QFT\ket{00\cdots 0} = \frac{1}{\sqrt{N}}\sum_{k=0}^{N-1}\ket{k}$
+
+\ex (5.1) Each $y_k$ takes $2^n$ operations, hence $4^n$ altogether.
+
+(5.4) There are $2^n$ terms, each of which takes $n$ multiplication, hence the sum takes $n2^n$ operations.
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    & \qw & \ctrl{1} & \qw & \ctrl{1} & \gate{\begin{pmatrix}1&\\ &e^{i\pi/2^k}\end{pmatrix}} & \qw \\
+    & \gate{R_z(\frac{2\pi/2^k})} & \targ & \gate{R_z(-\frac{2\pi}{2^k})} & \targ & \gate{R_z(\frac{2\pi}{2^k})} & \qw 
+}$$
+
+\ex pass.
+
+\ex The number of approximate gates is $n(n+1)/2$, and since each gate has error $\Theta(1/p(n))$, the total error is $\Theta(n^2/p(n))$ by Box 4.1.

@@ -1,0 +1,34 @@
+\section{Measurement}
+
+\ex Let $\rho=\sum_{i=0,1}p_i\rho_i$, then 
+$$\rho'=\sum_{i=0,1}\tr(P_i\rho P_i)\frac{P_i\rho P_i}{\tr(P_i\rho P_i)}=P_0\rho P_0+P_1\rho P_1,$$
+
+and
+$$\tr_2(\rho')=\tr_2(P_0\rho P_0+P_1\rho P_1)=\tr_2(\rho P_0P_0+\rho P_1P_1)=\tr_2(\rho P_0+\rho P_1)=\tr_2(\rho).$$
+
+\ex $$\begin{aligned}
+    \frac{\ket{00}+\ket{11}}{\sqrt{2}} & \rightarrow & \frac{\ket{00}+\ket{10}}{\sqrt{2}} = \ket{+0} & \rightarrow & \ket{00},\\
+    \frac{\ket{00}-\ket{11}}{\sqrt{2}} & \rightarrow & \frac{\ket{00}-\ket{10}}{\sqrt{2}} = \ket{-0} & \rightarrow & \ket{10},\\
+    \frac{\ket{01}+\ket{10}}{\sqrt{2}} & \rightarrow & \frac{\ket{01}+\ket{11}}{\sqrt{2}} = \ket{+1} & \rightarrow & \ket{01},\\
+    \frac{\ket{01}-\ket{10}}{\sqrt{2}} & \rightarrow & \frac{\ket{01}-\ket{11}}{\sqrt{2}} = \ket{-1} & \rightarrow & \ket{11}.
+\end{aligned}$$
+
+\ex Let $\ket{\psi_{\pm 1}}$ be the eigenstates of $U$ w.r.t. eigenvalues $\pm 1$, then
+$$\begin{aligned}
+    & \ket{0}(a\ket{\psi_{+1}}+b\ket{\psi_{-1}}) \overset{H}{\rightarrow} \frac{\ket{0}+\ket{1}}{\sqrt{2}}(a\ket{\psi_{+1}}+b\ket{\psi_{-1}})
+    \\ \overset{C(U)}{\rightarrow} & \frac{\ket{0}+\ket{1}}{\sqrt{2}}a\ket{\psi_{+1}}+\frac{\ket{0}-\ket{1}}{\sqrt{2}}b\ket{\psi_{-1}} \overset{H}{\rightarrow} \ket{0}\ket{\psi_{+1}}+\ket{1}\ket{\psi_{-1}}
+    \\ \overset{M}{\rightarrow} & 0\text{ for }\psi_{+1}\text{ and }1\text{ for }\psi_{-1}.
+\end{aligned}$$
+
+\ex The first circuit: $(a\ket{0}+b\ket{1})\ket{\psi} \overset{C(U)}{\rightarrow} a\ket{0}\ket{\psi}+b\ket{1}\ket{U\psi} \overset{M}{\rightarrow} \ket{0}\ket{\psi}\text{ with probability }|a|^2\text{ and }\ket{1}\ket{U\psi}\text{ with probability }|b|^2$.
+
+The second circuit: $(a\ket{0}+b\ket{1})\ket{\psi} \overset{M}{\rightarrow} \ket{0}\ket{\psi}$ with probability $|a|^2$ and $\ket{1}\ket{\psi}$ with probability $|b|^2$ $\overset{C(U)}{\rightarrow}$ $\ket{0}\ket{\psi}$ with probability $|a|^2$ and $\ket{1}\ket{U\psi}$ with probability $|b|^2$.
+
+Hence those two circuits are identity.
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    & \lstick{x_1} & \ctrl{1} & \qw & \qw \\
+    & \lstick{y_1} & \targ & \targ & \qw \\
+    & \lstick{x_0} & \ctrl{1} & \ctrl{-1} & \qw \\
+    & \lstick{y_0} & \targ & \ctrl{-1} & \qw 
+}$$

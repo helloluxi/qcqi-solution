@@ -1,0 +1,104 @@
+\chapter{Group theory}
+
+\ex If not, then the set $\{e, g, g^2, \cdots\}$ forms an infinte subgroup of the finite group $G$ and causes a contradiction.
+
+\ex Define a equivalance relation in $G$ that $g_1\sim g_2$ if there exists $h\in H$ such that $g_1=hg_2$.
+The verification of equivalance relation is omitted.
+It is apprent that each equivalance class contains $|H|$ elements.
+Since $G$ can be divided into several equivalance classes, we conclude that $|H|$ divides $|G|$.
+
+\ex The cyclic group $\langle g\rangle$ is a subgroup of $G$, hence $|\langle g\rangle|$, the order of $g$, divides $|G|$.
+
+\ex Since $y\in G_x$, there exists $g\in G$ such that $y=g^{-1}xg$.
+For any $z_1\in G_x$ there exists $g_1\in G$ such that $z_1=g_1^{-1}xg_1$, hence $z_1=g_1^{-1}gyg^{-1}g_1=(g^{-1}g_1)^{-1}y(g^{-1}g_1)\in G_y$.
+For any $z_2\in G_y$ there exists $g_2\in G$ such that $z_2=g_2^{-1}yg_2$, hence $z_2=g_2^{-1}g^{-1}xgg_1=(gg_2)^{-1}x(gg_2)\in G_x$.
+So $G_x=G_y$.
+
+\ex For any $y\in G$ we have $y^{-1}xy=xy^{-1}y=x$, hence $G_x=\{x\}$.
+
+\ex Let $G$ be a group of prime order $p$,.
+Choose arbitrary non-identity element $g\in G$, then $\langle g\rangle$ is a non-trivial subgroup of $G$.
+So $|\langle g\rangle|$ is a factor of $p$ and $|\langle g\rangle|>1$.
+Hence $|\langle g\rangle|=p$ and then $\langle g\rangle=G$, which indicates $G$ is cyclic.
+
+\ex Let $G=\langle g\rangle$ and $H$ be a subgroup of $G$, then we can express $H$ as $\{g^{h_1},g^{h_2},\cdots,g^{h_{|H|}}\}$, where $0\le h_1,h_2,\cdots,h_{|H|}<|G|$.
+Let $h_*$ be the greatest common divisor of $\{h_1,h_2,\cdots,h_{|H|}\}$, then there exists $c_1,\cdots,c_{|H|}\in\mathbb{Z}$ such that $\sum_ic_ih_i=h_*$.
+Hence $g_*:=g^{h_*}=\prod_i\left(g^{h_i}\right)^{c_i}\in H$.
+So $\langle g_*\rangle$ is a subgroup of $H$.
+Since each $g^{h_i}$ in $H$ satisfies $h_*|h_i$, we know $H$ is a subgroup of $\langle g_*\rangle$.
+Hence $H=\langle g_*\rangle$ is cyclic.
+
+\ex $g^m=g^n$ $\Leftrightarrow$ $g^{m-n}=e$ $\Leftrightarrow$ $g^{(m-n)~\mathrm{mod}~r}=e$ $\Leftrightarrow$ $m-n=0(\mathrm{mod}~r)$.
+
+\ex If $g_2=h_1h,h\in H$ then $g_1,g_2\in g_1H$.
+If $g_1,g_2\in gH$ then $\exists h_1,h_2\in H$ such that $g_1=gh_1,g_2=gh_2$, hence $g_2=g_1(h_1^{-1}h_2),h_1^{-1}h_2\in H$.
+
+\ex $|G|/|H|$.
+
+\ex We must assume that $G$ is finite.
+
+(1) pass.
+
+(2) Let $\lambda_1,\cdots,\lambda_n$ be all the eigenvalues of $g$, and $r$ be the order of $g$.
+Since $g^r=I$ we have $\lambda_1^r=\cdots=\lambda_n^r=1$.
+So $|\lambda_1|=\cdots=|\lambda_n|=1$, hence $\chi(g)=\sum_i\lambda_i \le \sum_i|\lambda_i| = n$.
+
+(3) $\chi(g)=\sum_i\lambda_i \le \sum_i|\lambda_i| = n$, the equality holds iff all $\lambda_i$ have the same argument $\theta$.
+The relation $g^r=I$ gives a constraint that all Jordan blocks of $g$ should be of size 1, hence $g=e^{i\theta}I$.
+
+(4) $\chi(h^{-1}gh)=\tr(h^{-1}gh)=\tr(ghh^{-1})=\tr(g)=\chi(g)$.
+
+(5) Since $|\lambda_i|=1$ we have $\lambda_i^{-1}=\lambda_i^*$, therefore $\chi(g^{-1})=\sum_i\lambda^{-1}=\sum_i\lambda_i^*=\chi^*(g)$.
+
+(6) Since each $\lambda_i^r=1$ we know $\lambda_i$ is an algebraic number, hence their sum $\chi(g)$ is an algebraic number.
+
+\ex Let $G$ be arbitrary matrix group.
+Define $A=\sum_{g\in G}g^\dagger g$, then for any $h\in G$, we have $h^\dagger Ah=\sum_{g\in G}(h^\dagger g^\dagger)gh=\sum_{gh\in G}(gh)^\dagger gh=A$.
+Plus, $A$ is positive definite since it is a sum of positive matrices, hence there exists matrix $B$ such that $A=B^\dagger B$.
+Then we have $h^\dagger B^\dagger Bh=B^\dagger B$ and thus $(BhB^{-1})^\dagger(BhB^{-1})=(B^\dagger)^{-1}h^\dagger B^\dagger BhB^{-1}=I$ for any $h\in G$.
+Therefore $H=\{BhB^{-1}:f\in G\}$ is a unitary matrix group that is equivalence to $G$.
+
+Reference: \url{https://www.maths.usyd.edu.au/u/bobh/UoS/97r1.pdf}
+
+\ex For any $g,h\in G$ we have $gh=hg$.
+Let $\lambda$ be an eigenvalue of $h$, then $g(h-\lambda I)=(h-\lambda I)g$ for any $g\in G$.
+By Schur's lemma, since $h-\lambda I$ is not nonsingular, we have $h-\lambda I=0$.
+Hence every element in $G$ has the form $\lambda I$ for some number $\lambda$.
+Then the irreduciblity implies $G$ is one-dimensional.
+
+\ex \urlref{https://groupprops.subwiki.org/wiki/Degree_of_irreducible_representation_divides_order_of_group}
+
+\ex (1) Sum Eq.~(A2.3) through $1\le i=j, k=l \le d_\rho$ we get
+
+$$\sum_{g\in G}\tr[(\rho^p(g))^{-1}]\tr[\rho^q(g)] = |G|\delta_{pq}$$
+
+By the property 5 in Ex. A2.11 we can see the LHS above is equal to $\sum_{i=1}^r r_i(\chi_i^p)^*\chi_i^q$.
+
+(2) \todo
+
+\ex pass.
+
+\ex pass.
+
+\ex Since the representation image of $I$ is the identity matrix, $\chi(I)=|G|$.
+For $g\neq I$, $\forall h\in G$ we have $gh\neq h$, hence its representation image has no diagonal element, therefore $\chi(g)=0$.
+
+\ex The only conjugacy class $i$ with $\chi_i\neq 0$ is $\{e\}$.
+By $\chi^p(e)=d_{\rho^p}$ and $\chi(e)=|G|$ we get
+$$c_p=\frac{1}{|G|}\sum_{i=1}^pr_i(\chi^p_i)^*\chi_i=\frac{1}{|G|}(\chi^p(e))^*\chi(e)=d_{\rho^p}.$$
+
+\ex $$\sum_{\rho\in\hat{G}}d_\rho\chi^\rho(g)=\chi^R(g)=|G|\delta_{ge}.$$
+
+\ex Just substitute $g=e$ to the equality above.
+
+\ex \todo
+
+% $$\begin{aligned}
+%     \hat{f}(\rho) = & \sqrt{\frac{d_\rho}{N}} \sum_{g\in G} f(g) \rho(g)
+%     \\ = & \frac{\sqrt{d_\rho}}{N} \sum_{g\in G}\sum_{\rho'\in \hat{G}} \sqrt{d_{\rho'}}\tr(\hat{f}(\rho')\rho'(g^{-1})) \rho(g)
+%     \\ = & 
+% \end{aligned}$$
+
+\ex pass.
+
+\ex 

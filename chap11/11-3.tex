@@ -1,0 +1,129 @@
+\section{Von Neumann entropy}
+
+\ex pass.
+
+\ex The eigenvalues of
+$$\rho = \begin{pmatrix}
+    \frac{1+p}{2} & \frac{1-p}{2} \\
+    \frac{1-p}{2} & \frac{1-p}{2}
+\end{pmatrix},$$
+is $\lambda_\pm = (1\pm\sqrt{1-2p+2p^2})/2$.
+Therefore,
+$$\begin{aligned}
+    S(\rho) = & -\lambda_+\log\lambda_+ -\lambda_-\log\lambda_-
+    \\ = & -\frac{1+\sqrt{1-2p+2p^2}}{2}\log\frac{1+\sqrt{1-2p+2p^2}}{2} 
+    \\ & -\frac{1-\sqrt{1-2p+2p^2}}{2}\log\frac{1-\sqrt{1-2p+2p^2}}{2}.
+\end{aligned}$$
+
+Notice that $(1+\sqrt{1-2p+2p^2})/2 \ge (1+\sqrt{1-4p+4p^2})/2 = \max(p, 1-p)$, we have
+$S(\rho) = H(\lambda_+, \lambda_-) \ge H(p, 1-p)$.
+The equality holds iff $p=0\text{ or }1$.
+
+\ex Just set $\rho=\sum_ip_i\dyadic{i}{i}$ and $\sigma=\rho_i$ in Eq.~(11.58).
+To prove directly from the definition, let $\{\lambda_i\}$ and $\{\mu_j\}$ be the eigenvalue set of $\rho$ and $\sigma$, then the eigenvalue set of $\rho\otimes\sigma$ is $\{\lambda_i\mu_j\}$. So
+$$\begin{aligned}
+S(\rho\otimes\sigma) = & -\sum_{i,j}\lambda_i\mu_j\log(\lambda_i\mu_j)
+\\ = & -\sum_{i,j}\lambda_i\mu_j\log\lambda_i -\sum_{i,j}\lambda_i\mu_j\log\mu_j
+\\ = & \sum_j\mu_j S(\rho) + \sum_i\lambda_i S(\sigma)
+\\ = & S(\rho) + S(\sigma).
+\end{aligned}$$
+
+\ex Since $\ket{AB}$ is pure, $S(A, B) = 0$.
+Then $S(B|A)=S(A, B) - S(A) < 0$ iff $S(A) > 0$, i.e., $AB$ is entangled.
+
+\ex Let $\rho'=M_0\rho M_0^\dagger + M_1\rho M_1^\dagger$, then
+$$\rho' = (\bra{0}\rho\ket{0} + \bra{1}\rho\ket{1})\dyadic{0}{0}
+= \tr(\rho\dyadic{0}{0} + \rho\dyadic{1}{1})\dyadic{0}{0}
+= \dyadic{0}{0}.$$
+
+Hence $S(\rho')=0 \le S(\rho)$.
+
+\ex Introduce a system $R$ to purify the system $AB$, as in the proof of the subadditivity inequality.
+Write the pure state as $\sum_i\sqrt{\lambda_i}\ket{i^{AB}}\otimes\ket{i^R}$, and suppose all $\lambda_i > 0$, then
+$$
+\rho^R = \sum_i \lambda_i\dyadic{i^R}{i^R}, \quad
+\rho^{AR} = \sum_{i,j} \sqrt{\lambda_i\lambda_j}\tr_B(\dyadic{i^{AB}}{j^{AB}})\otimes\dyadic{i^R}{j^R}.
+$$
+
+The equality condition is $\rho^{AR} = \rho^A \otimes \rho^R$, by comparing the coefficients of $\dyadic{i^R}{j^R}$ we have
+$$
+\lambda_i\rho_i^A = \lambda_i\rho^A,
+$$
+and
+$$
+\sqrt{\lambda_i\lambda_j}\tr_B(\dyadic{i^{AB}}{j^{AB}})=0 \quad(i\neq j).
+$$
+
+The first equality shows that all $\rho_i^A$s are equal to $\rho^A$? (\todo)
+The second equality shows that $\rho_i^B$ and $\rho_j^B$ have orthogonal support when $i\neq j$. (\todo)
+
+\ex Let $\rho^{AB} = \frac{1}{2}\dyadic{0_A0_B}{0_A0_B} + \frac{1}{2}\dyadic{0_A1_B}{0_A1_B}$.
+Then $\rho^A = \dyadic{0}{0}$ and $\rho^B = \frac{I}{2}$.
+Hence $1 = S(A, B) = S(B) - S(A) = 1 - 0$.
+
+\ex The equality holds iff $S(A,B)=S(A)+S(B)$, iff
+$$\begin{aligned}
+    & \rho^{AB} = \rho^A \otimes \rho^B
+    \\ \Longleftrightarrow & \sum_i p_i\rho_i \otimes \dyadic{i}{i} = \sum_i p_i\rho_i \otimes \sum_j p_j\dyadic{j}{j}
+    \\ \Longleftrightarrow & p_i\rho_i = p_i\rho^A\text{ for all }i.
+    \\ \Longleftrightarrow & \text{All }\rho_i\text{s are equal.}
+\end{aligned}$$
+
+\ex \todo
+
+\ex Let $U_1=P+Q$, $U_2=P-Q$ and $p=1/2$.
+To prove Theorem 11.9, let
+$$
+U_1 = P_1 + \sum_{j=2}^nP_i = I
+\text{ and }
+U_2 = P_1 - \sum_{j=2}^nP_i,
+$$
+then
+$$
+\rho'
+= P_1\rho P_1 + \sum_{i=2}^n P_i\rho P_i
+= \frac{1}{2}(U_1^\dagger\rho U_1 + U_2^\dagger\rho U_2).
+$$
+
+By concavity of entropy we have
+$$\begin{aligned}
+S(\rho') = & S(\frac{1}{2}U_1^\dagger\rho U_1 + \frac{1}{2}U_2^\dagger\rho U_2)
+\\ \ge & \frac{1}{2}S(U_1^\dagger\rho U_1) + \frac{1}{2}S(U_2^\dagger\rho U_2) = \frac{1}{2}S(\rho) + \frac{1}{2}S(\rho) = S(\rho).
+\end{aligned}$$
+
+\ex Just restrict denisty matrices in diagonal matrices.
+
+\ex The first argument is omitted.
+For any matrix $A(t)$ such that $||A(t)||<1$, we have
+$$\begin{aligned}
+    \frac{\D}{\D t}\log A(t) = & \frac{\D}{\D t}\log[I+(A(t)-I)]
+    \\ = & \frac{\D}{\D t}\sum_{n=1}\frac{(-1)^{n-1}}{n}(A(t)-I)^n
+    \\ = & \sum_{n=1}(-1)^{n-1}(A(t)-I)^{n-1}A'(t)
+    \\ = & \sum_{n=0}(I-A(t))^n A'(t)
+    \\ = & (I - A(t))^{-1}A'(t),
+\end{aligned}$$
+and
+$$\begin{aligned}
+    \frac{\D}{\D t}A(t)\log A(t) = & \frac{\D}{\D t}[I+(A(t)-I)]\log[I+(A(t)-I)]
+    \\ = & \frac{\D}{\D t}\sum_{n=1}\frac{(-1)^{n+1}}{n}[(A(t)-I)^n+(A(t)-I)^{n+1}]
+    \\ = & \sum_{n=1}(-1)^{n+1}[(A(t)-I)^{n-1}+(1+\frac{1}{n})(A(t)-I)^n]A'(t)
+    \\ = & \left[I + \sum_{n=1}\frac{(-1)^{n+1}}{n}(A(t)-I)^n\right]A'(t)
+    \\ = & [I + \log A(t)]A'(t).
+\end{aligned}$$
+
+Since $\rho$ and $\sigma$ can be represented by two Bloch vectors, $p\rho+(1-p)\sigma$ can be represented by a linear interpolation between them, which is a non-unit Bloch vector if $0<p<1$ and $\rho\neq\sigma$, whether $\rho$ and $\sigma$ are invertible or not, hence of spectrum radius less than 1.
+We have
+
+$$\begin{aligned}
+    f'(p) = & -\tr\left[\frac{\D}{\D p}(p\rho+(1-p)\sigma)\log(p\rho+(1-p)\sigma)\right]
+    \\ = & -\tr\left[[I + \log(p\rho+(1-p)\sigma))](\rho-\sigma)\right],
+\end{aligned}$$
+and
+$$\begin{aligned}
+    f''(p) = & -\tr\left[(I-p\rho-(1-p)\sigma)^{-1}(\rho-\sigma)^2\right]
+    \\ = & -\tr\left[(\rho-\sigma)^\dagger(I-p\rho-(1-p)\sigma)^{-1}(\rho-\sigma)\right].
+\end{aligned}$$
+
+Notice that $I-p\rho-(1-p)\sigma$ can be represented by a Bloch vector, which is exactly the negative of the Bloch vector of $p\rho-(1-p)\sigma$, hence is positive definite and so is its invertion.
+So $(\rho-\sigma)^\dagger(I-p\rho-(1-p)\sigma)^{-1}(\rho-\sigma)$ is positive semi-definite, hence has non-negative trace.
+We conclude that $f''(p) \le 0$.

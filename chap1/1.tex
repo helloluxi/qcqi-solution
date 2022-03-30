@@ -1,0 +1,13 @@
+\chapter{Introduction and overview}
+
+\ex Randomly choose $k$ distinct values $x\in\{0,\cdots,2^n-1\}$, then we declare $f$ is constant iff all outputs $f(x)$ are equal.
+Error occurs only if $f$ is balanced but happens to yield the same outputs, with probability $\varepsilon=2C_{2^{n-1}}^k/C_{2^n}^k$.
+We have $\varepsilon<1/2$ when $k\ge 2$.
+
+\ex Since we can identify the coefficients of any given qubit, we can directly build a copy.
+Conversely, to distinguish two non-orthogonal states $\ket{\psi}$ and $\ket{\varphi}$, we can build $n$ copies and measure them under the orthogonal basis spanned by $\ket{\psi}$.
+We declare the state is $\ket\psi$ iff each measure yields $\ket\psi$, with error probability decreasing exponentially to zero about $n$.
+
+\prob \todo
+
+\prob \todo

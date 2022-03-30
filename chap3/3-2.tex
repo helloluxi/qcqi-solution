@@ -1,0 +1,124 @@
+\section{The analysis of computational problems}
+
+\ex $f$ is $O(g)$.
+$\Leftrightarrow$
+$\exists c,n_0$, s.t. $f(n)\le cg(n)$ for $n>n_0$.
+$\Leftrightarrow$
+$\exists c'(=1/c),n_0$, s.t. $g(n)\ge c'g(n)$ for $n>n_0$.
+$\Leftrightarrow$
+$g$ is $\Omega(f)$.
+
+Therefore, $f$ is $\Theta(g)$.
+$\Leftrightarrow$
+$f$ is $O(g)$ and $\Omega(g)$.
+$\Leftrightarrow$
+$g$ is $O(f)$ and $\Omega(f)$.
+$\Leftrightarrow$
+$g$ is $\Theta(f)$.
+
+\ex Suppose $g(n) = \sum_{i=0}^ka_in^i$.
+Choose $n_0 > \sum_{i=0}^k|a_i| \in\mathbb{Z}_+$ and $c=1$.
+For $n > n_0$ we have $g(n) = \sum_{i=1}^k a_i n^i < \sum_{i=0}^k|a_i|n^k n^{k+1} \le n^l$.
+Hence $g(n)$ is $O(n^l)$.
+
+\ex Since $\lim\limits_{n\rightarrow\infty}\frac{\log(n)}{n^k}=\lim\limits_{n\rightarrow\infty}\frac{(1/n)}{kn^{k-1}}=\lim\limits_{n\rightarrow\infty}\frac{1}{kn^k}=0$, for any $c>0$ there exists $n_0>0$ s.t. $\log(n)/n^k<c$ for all $n>n_0$, hence $\log(n)$ is $O(n^k)$.
+
+\ex Choose $n_0=2^k$ and $c=1$, for $n>n_0$ we have $n^k \le n^{\log n} = cn^{\log n}$.
+Hence $n^k$ is $O(n^{\log n})$.
+For any $c>0$, let $n_0=\max(c,2^{k+1})$, for $n>n_0$ we have $n^{\log n} > n^{k+1} \ge cn^k$.
+Hence $n^{\log n}$ is never $O(n^k)$.
+
+\ex $\lim\limits_{n\rightarrow\infty}n\left(\log(c)-\frac{\log^2(n)}{n}\right) = \lim\limits_{n\rightarrow\infty}n\log(c) = +\infty$ 
+$\Rightarrow$ 
+$\lim\limits_{n\rightarrow\infty}\frac{c^n}{n^{\log(n)}} = \exp\left[\lim\limits_{n\rightarrow\infty}n\log(c)-\log^2(n)\right] = +\infty$ 
+$\Rightarrow$ 
+$c^n$ is $\Omega(n^{\log n})$, but $n^{\log n}$ is never $\Omega(c^n)$.
+
+\ex pass.
+
+\ex Let $c_k$ be the number of identifiable states in $k$ comparisons.
+Of course $c_1 = 2$.
+Based on the result of $k$ comparisons we apply a $(k+1)$-th comparison, hence $c_{k+1}=2c_k$.
+So we can conclude that $c_k=2^k$.
+Finally the least number of comparisons to identify all of $n!$ states is $k\ge\log(n!)\approx n\log n - n$, hence $\Omega(n\log n)$.
+
+\ex \todo I can only find arguments that there exist Boolean
+functions on $n$ inputs which require at $\Omega(2^n/n)$ logic gates yet.
+
+\urlref{https://cs.stackexchange.com/questions/41728}
+
+\ex Since factor-finding contains factor-decision, we only prove the backward.
+Suppose we find a factor $l<m$ of a given number $m$, we can further find factors by applying the factor-decision algorithm to $l$ and $m/l$.
+Since the number of prime factors of $m$ is no more than its bit length, after an $O(\log m)$ of steps we complete our factor-finding algorithm.
+Since each factor-decision step is in $\bm{P}$, the overall algorithm is in $\bm{P}$.
+
+\ex Since \textbf{NP} is not equal to its complement \textbf{coNP} while \textbf{P} is not equal to its complement \textbf{P}, we know \textbf{P}$\neq$\textbf{NP}.
+
+\ex (1) BFS, $O(n^2)$. (2) For fixed vertex $v_0$, apply the algorithm to $(v_0,v)$ for all $v$, which requires $O(n^3)$ operations.
+
+\ex \textbf{Forward:} If Euler cycle exists, then for each vertex $v$ the numbers of in-arrows and out-arrows equal, hence the total degree is even.
+
+\textbf{Backward:} First randomly explore a cycle $L_0$ in the whole graph $G$.
+If there exists a vertex $v_1$ on the cycle such that parts of edges connected to $v_1$ are not contained in $L_0$, then we randomly explore a cycle $L_1$ in the subgraph $G-L_0$ and we obtain a larger cycle $L_0+L_1$.
+Loop the process until no edges remain. \redstar
+
+\ex pass.
+
+\ex pass.
+
+\ex Just as the hint says.
+
+\ex (1)\textbf{if:} In a satisfiable input, the vertices in the same strongly connected component must take the same value, otherwise there exists an edge from 1 to 0, which corresponds to a false clause.
+If there exists $x$ such that $x$ and $\neg x$ stays in the same strongly connected component, since they cannot take the same value, we conclude that there is no satisfiable input.
+
+\textbf{only if:} We prove the contrapositive and suppose there is no vertex $x$ such that $x$ and $\neg x$ stay in the same strongly connected component.
+Noting that a clause $(\neg a\vee b)$ brings up two edges $a\rightarrow b$ and $\neg b\rightarrow\neg a$, we conclude that any pair of vertices $x$ and $y$ is in the same strongly connected component iff $\neg x$ and $\neg y$ is in the same strongly connected component.
+
+Hence there is a 1-to-1 relationship between strongly connected components, we denote one pair of them as $A$ and $\neg A$.
+We can construct a directed acyclic graph $G'(\varphi)$ in which a vertex stands for a strongly connected component in $G(\varphi)$, and the existence of an edge $A\rightarrow B$ in $G'(\varphi)$ means there exists $a\in A, b\in B$ such that there exists an edge $a\rightarrow b$ in $G(\varphi)$.
+The acyclic property is clear since if a cycle exists then all vertices (strongly connected components) along the cycle should form a single strongly connected component.
+
+Therefore we can define a partial order for vertices in $G'(\varphi)$ via $A<B$ iff there exists path from $A$ to $B$. \todo
+% For each vertex $A$ in $G'(\varphi)$, if $A>\neg A$ then we assign the value 0 to all variables in $A$ and the value 1 to all variables in $\neg A$, if $A<\neg A$ then we assign the value 1 to all variables in $A$ and the value 0 to all variables in $\neg A$, and if both $A\ngtr\neg A$ and $A\nless\neg A$ then
+
+(2) Use BFS and the number of searchs is no more than the number of directed edges, which is $O(n^2)$.
+
+(3) For each variable $x$, determine whether $x$ and $\neg x$ is strongly connected.
+One can conclude that a formula is satisfiable iff there exists variable $x_0$ such that $x$ and $\neg x$ is strongly connected.
+The effort for each variable is $O(n^2)$, hence the total effort is $O(n^3)$.
+
+\ex Just as the hint says.
+
+\ex Analogous to Ex.3.25 where polynomial $p(n)$ is replaced by function $q(n)$ in $O(\log(n))$, i.e., $\exists c>0,n_0\in\mathbb{Z}_+$ s.t. $q(n)<c\log(n)$ for $n>n_0$, then the time bound $lm^{q(n)} < lm^{c\log n} = ln^{c\log m}$ is in \textbf{P}.
+
+\ex Let $a,b$ be the number of vertices of approximation algorithm and minimal result, resp.
+Then the number of edges selected in the approximation algorithm is $a/2$.
+Since no two edges selected by the approximation algorithm is covered by the same vertex in minimal results, we have $b\ge a/2$, i.e., $a/b\le 2$.
+
+\ex As Box 3.4 goes.
+
+\ex pass.
+
+\ex pass.
+
+\ex $$\Qcircuit @C=1em @R=.7em {
+    \lstick{x} & \ctrl{1} & \ctrl{3} & \qw & \qw & \rstick{x} \\
+    \lstick{y} & \ctrl{1} & \qw & \ctrl{2} & \qw & \rstick{y} \\
+    \lstick{0} & \targ & \qw & \qw & \qw & \rstick{x\& y} \\
+    \lstick{0} & \qw & \targ & \targ & \qw & \rstick{x\oplus y} \\
+}$$
+
+\ex \textbf{Backward:}
+$$\Qcircuit @C=1em @R=.7em {
+    \lstick{x} & \ctrl{1} & \ctrl{1} & \ctrl{1} & \qw \\
+    \lstick{y} & \ctrl{1} & \targ & \ctrl{1} & \qw \\
+    \lstick{z} & \targ & \ctrl{-1} & \targ & \qw
+} = \qquad \Qcircuit @C=1em @R=.7em {
+    \lstick{x} & \ctrl{1} & \qw \\
+    \lstick{y} & \qswap & \qw \\
+    \lstick{z} & \qswap\qwx & \qw
+}$$
+
+\textbf{Forward:} \urlref{https://physics.stackexchange.com/questions/88111}
+
+\section{Perspectives on computer science}

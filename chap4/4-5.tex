@@ -1,0 +1,44 @@
+\section{Universal quantum gates}
+
+\ex \todo
+
+\ex \urlref{https://physics.stackexchange.com/questions/532215}
+
+\ex Using Gray code $010 \rightarrow 011 \rightarrow 111$:
+
+$$\Qcircuit @C=1em @R=.7em {
+    & \ctrlo{1} & \gate{\tilde{U}} & \ctrlo{1} & \qw \\
+    & \ctrl{1} & \ctrl{-1} & \ctrl{1} & \qw \\
+    & \targ & \ctrl{-1} & \targ & \qw
+}$$
+
+\ex $E(R_n(\alpha), R_n(\alpha+\beta))=\max_{\ket\psi}||(1-R_n(\beta))R_n(\alpha)\ket\psi||=\max_{\ket\psi}||(1-R_n(\beta))\ket\psi||=|1-\exp(i\beta/2)|$. (\todo[fig])
+
+\ex The state before measurement is
+$$\frac{1}{4}[\ket{00}(3S\ket\psi+XSX\ket\psi)+(\ket{01}+\ket{10}-\ket{11})(S\ket\psi-XSX\ket\psi)].$$
+
+If the measurement outcome is 00, the third state becomes
+$$\frac{1}{\sqrt{10}}\begin{pmatrix}
+    3 + i & \\
+    & 1 + 3i
+\end{pmatrix}\ket\psi.$$
+
+It is easy to verify that the angle between $(3+i)$ and $(1+3i)$ is $\arccos(3/5)$, hence the matrix is equal to $R_z(\arccos(3/5))$ up to a global phase.
+It is also easy to verify that the related probability is $10/16$.
+For other possibilities of outcomes, the third qubit state is 
+$$(S-XSX)\ket\psi = \begin{pmatrix}
+    1 - i & \\
+    & i - 1
+\end{pmatrix} = Z\ket\psi(\text{global phase omitted}).$$
+
+Hence we can construct the following circuit to apply $R_z(\arccos(3/5))$ with probability $1-(3/8)^n\rightarrow1(n\rightarrow\infty)$. (\todo[fig])
+
+\ex (1)If $\theta$ is a rational multiple of $2\pi$, says $\theta=2\pi q/p_p,q\in\mathbb{Z}$, we have $(3+4i)^p=5^pe^{i2\pi q}=5^p$.
+
+(2)$(3+4i)^2=-7+24i\overset{\operatorname{mod }5}{=}3+4i$. By induction, $(3+4i)^m\overset{\operatorname{mod }5}{=}3+4i$ for all positive interger $m$. But $5^m\overset{\operatorname{mod }5}{=}0$, so $(3+4i)^m\neq 5^m$.
+
+\ex pass.
+
+\ex \urlref{https://quantumcomputing.stackexchange.com/questions/10216/why-is-deutschs-gate-universal}
+
+\ex pass.

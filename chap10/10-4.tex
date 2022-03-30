@@ -1,0 +1,64 @@
+\section{Constructing quantum codes}
+
+\ex pass.
+
+\ex pass.
+
+\ex pass.
+
+\ex $$H = \begin{pmatrix}
+    1 & 1 & 0 & 0 & 0 & 0 \\
+    0 & 1 & 1 & 0 & 0 & 0 \\
+    0 & 0 & 0 & 1 & 1 & 0 \\
+    0 & 0 & 0 & 0 & 1 & 1
+\end{pmatrix}$$
+
+\ex pass.
+
+\ex It's easy to verify that $HG=0$, hence the column vectors in $G$ is orthogonal to row vectors in $H$.
+
+\ex In other words, $Hx \neq 0$ for any word $x$ with $0 < \operatorname{wt}(x) < d$, and there exists a word $x_0$ such that $Hx_0=0$, hence the minimal Hamming weight of nonzero codewords is $d$.
+
+\ex Since the parity check matrix $H$ is of size $(n-k)\times n$, it has rank no more than $(n-k)$, thus there must exist a word $x_0$ with $\operatorname{wt}(x)=n-k+1$ such that $Hx_0=0$.
+Therefore, $d \le n-k+1$.
+
+\ex Since each pair of columns are different and thus linearly independent, and the first three columns, says $00\cdots 001$, $00\cdots 010$ and $00\cdots 011$ are linearly dependent, we conclude that the Hamming code has distance 3.
+
+\ex First we declare that
+$$
+2^k \sum_{j=0}^{2t}C_n^j \ge 2^n.
+$$
+
+If not, then there exists a word $x$ that is at least $2t$ away from any other codeword in $C$, the codeword space.
+One more thought we know any word in $x+C$ is at least $2t$ away from any other codeword $C$ and $x+C$.
+Hence we can add $x+C$ into the codewords to make its best use.
+
+The remaining problem is to prove
+$$
+\sum_{j=0}^{2t}C_n^j \le 2^{nH(p)},
+$$
+where $p=2t/n$.
+By expanding $H(p)$ and move it to the left, the inequality above is equivalent to
+$$
+\sum_{j=0}^{2t}C_n^j p^{2t} (1-p)^{n-2t} \le 1.
+$$
+
+For large $n$ such that $p\le 1/2$, we have $p^{2t} (1-p)^{n-2t} \le p^j(1-p)^{n-j}$ for $0\le j\le 2t$, therefore
+$$
+LHS \le \sum_{j=0}^{2t}C_n^j p^j (1-p)^{n-j} \le \sum_{j=0}^nC_n^j p^j (1-p)^{n-j} = 1.
+$$
+
+\ex $C\subseteq C^\perp$.
+$\Leftrightarrow$
+All columns in the generator matrix $G$ of $C$ are orthogonal to the columns in the parity check matrix $G^T$ of $C^\perp$.
+$\Leftrightarrow$
+$G^TG=0$.
+
+\ex If $x\in C^\perp$, then for all $y\in C$, $x\perp y$, i.e., $x\cdot y=0$, thus $\sum_{y\in C}(-1)^{x\cdot y}=|C|$.
+If $x\notin C^\perp$, then the dot product by $x$ is a epimorphism from $C$ to $\mathbb{Z}_2$, thus the number of preimages of 0 and 1 are equal, hence $\sum_{y\in C}(-1)^{x\cdot y}=0$.
+
+\ex For each row $i$ and column $j$ in $H$, if $H_{ij}=1$ then add a CNOT gate from the $j$-th qubit in $\ket{x}$ to the $i$-th qubit in the target.
+
+\ex \todo
+
+\ex pass.

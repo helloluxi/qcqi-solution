@@ -1,0 +1,27 @@
+\section*{Chapter Problems}
+\addcontentsline{toc}{section}{Chapter Problems}
+
+\prob Let $\ket{\psi_\pm}$ be the eigenstates of $\vec{n}\cdot\vec{\sigma}$ corresponding to eigenvalues $\pm 1$.
+Then $\dyadic{\psi_\pm}{\psi_\pm} = (I \pm \vec{n}\cdot\vec{\sigma}) / 2$, and $\vec{n}\cdot\vec{\sigma}=\dyadic{\psi_+}{\psi_+}-\dyadic{\psi_-}{\psi_-}$.
+We have
+
+$$\begin{aligned}
+    f(\theta\vec{n}\cdot\vec{\sigma}) = & f(\theta)\dyadic{\psi_+}{\psi_+}-f(-\theta)\dyadic{\psi_-}{\psi_-}
+    \\ = & \frac{f(\theta)+f(-\theta)}{2}I+\frac{f(\theta)-f(-\theta)}{2}(\vec{n}\cdot\vec{\sigma}).
+\end{aligned}$$
+
+\prob (1)$\ket\psi=\sum_i\lambda_i\ket{i^A}\ket{i^B}(\lambda_i>0)$ $\Rightarrow$ $\rho^A=\sum_i\lambda_i^2\dyadic{i^A}{i^A}$ $\Rightarrow$ In any basis spanned by $\{\ket{i^A}\}$, $\rho^A$ is a diagonal matrix whose non-zero entres are $\lambda_i^2$, hence the rank of $\rho^A$ is equal to $\operatorname{Sch}(\psi)$.
+
+(2)$\rho^A=\sum_j\dyadic{\alpha_j}{\alpha_j}$ is supported on the subspace spanned by $\ket{\alpha_j}$, whose dimension is less than or equal to the number of items, so is $\operatorname{Sch}(\psi)$.
+
+(3)$\tr_B\dyadic{\psi}{\psi}=|\alpha|^2\tr_B\dyadic{\varphi}{\varphi}+|\beta|^2\tr_B\dyadic{\gamma}{\gamma}$, then follow the inequality of rank of matrix addition and (1) we obtain the result.
+
+\prob (1)Using $Q^2=R^2=S^2=T^2=I$ we have
+$$\begin{aligned}
+    LHS=&[(Q+R)\otimes S]^2+(Q+R)\otimes S\cdot(R-Q)\otimes T
+    \\ &+(R-Q)\otimes T\cdot(Q+R)\otimes S+[(R-Q)\otimes S]^2
+    \\=&[(Q+R)^2+(R-Q)^2]\otimes I+(QR-RQ)\otimes ST+(RQ-QR)\otimes TS
+    \\=&4I^2+[Q,R]\otimes[S,T]=RHS
+\end{aligned}$$.
+
+(2) $\langle Q\otimes S+R\otimes S+R\otimes T-Q\otimes T\rangle^2\le\langle(Q\otimes S+R\otimes S+R\otimes T-Q\otimes T)^2\rangle=\langle 4I+[Q,R]\otimes[S,T]\rangle=4+\langle QR\otimes ST\rangle+\langle -QR\otimes TS\rangle+\langle -RQ\otimes ST\rangle+\langle RQ\otimes TS\rangle\le 8$.
